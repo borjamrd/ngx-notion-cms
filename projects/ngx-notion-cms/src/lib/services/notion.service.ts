@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { catchError, map, of, startWith } from 'rxjs';
 import { NotionBlock, NotionDatabaseItem } from './../types';
 import { NotionHttpService } from './http-notion.service';
+import { CacheService } from './cache.service';
 
 
 @Injectable({
@@ -9,11 +10,10 @@ import { NotionHttpService } from './http-notion.service';
 })
 export class NgxNotionService {
 
-  private http: NotionHttpService = inject(NotionHttpService);
+  private http = inject(NotionHttpService);
 
   public getDatabaseItemsById(id: string) {
     return this.http.get<NotionDatabaseItem[]>(`https://notion-api.splitbee.io/v1/table/${id}`)
-    // .pipe(tap((r) => console.log(r.data)))
   }
 
 

@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { catchError, map, Observable, of, startWith } from "rxjs";
+import { CacheService } from "./cache.service";
 
 export interface IHttpNotionResponse<T> { data: T | null, error: any | null, isPending: boolean }
 export type INgxNotionResponse<T> = Observable<IHttpNotionResponse<T>>
@@ -15,13 +16,24 @@ export interface IHttpNotionService {
 })
 export class NotionHttpService implements IHttpNotionService {
 
-    constructor(private http: HttpClient) { }
+    private cacheService = inject(CacheService)
+    private http = inject(HttpClient)
+
 
     get<T>(url: string): INgxNotionResponse<T> {
-        return this.http.get<T>(url).pipe(
-            map(data => ({ data, error: null, isPending: false })),
-            catchError(error => of({ data: null, error, isPending: false })),
-            startWith({ data: null, error: null, isPending: true })
-        );
+
+        const cachedData = this.cacheService.get(url);
+
+        if (!cachedData) {
+            return this.http.get<T>(url).pipe(
+                map(data => {
+                    this.cacheService.set(url, data)
+                    return ({ data, error: null, isPending: false })
+                }),
+                catchError(error => of({ data: null, error, isPending: false })),
+                startWith({ data: null, error: null, isPending: true })
+            );
+        }
+        return of({ data: cachedData, error: null, isPending: false })
     }
 }

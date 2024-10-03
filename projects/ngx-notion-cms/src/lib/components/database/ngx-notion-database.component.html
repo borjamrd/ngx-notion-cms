@@ -1,0 +1,21 @@
+@let query = tableItemsQuery |async; @if(query){
+
+<div class="flex">
+  <div class="max-w-3xl mx-auto">
+    @if (query.isPending) {
+    <div>Loading</div>
+    } @else { @if(query.error){
+    <div>Error</div>
+    } @if (query.data; as items){
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 lg:gap-5">
+      @for (item of items; track $index) { @defer () {
+      <ngx-notion-database-item
+        (clicked)="goToPage($event)"
+        [databaseItem]="item"
+      />
+      } }
+    </div>
+    } }
+  </div>
+</div>
+}

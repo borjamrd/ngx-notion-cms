@@ -1,0 +1,13 @@
+.placeholder {
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+}
+
+.image-loaded {
+    opacity: 1;
+}
+
+.placeholder-loaded {
+    filter: none;
+}

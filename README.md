@@ -1,27 +1,83 @@
-# NotionWorkspace
+![Alt text](public/ngx-notion-cms-rounded.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+Render your Notion content through your Angular application as a CMS.
+Possible uses:
 
-## Development server
+-   Write your blog
+-   Showcase your projects
+-   Write documentation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Huge thanks to [react-notion](https://github.com/splitbee/react-notion), this library simulates much of what they have previously created with React. ❤️
 
-## Code scaffolding
+_This package doesn't handle the communication with the API. Check out [notion-api-worker](https://github.com/splitbee/notion-api-worker) for an easy solution_.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<sub>Created by <a href="https://twitter.com/timolins">Borja Muñoz</a> with the help of all <a href="https://github.com/borjamrd/notion-workspace/graphs/contributors">contributors</a> </sub>
 
-## Build
+## Table of Contents
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1.  [Type of content](#type-of-content)
+2.  [Get started](#get-started)
+3.  [Aditional Options](#aditional-options)
+4.  [Supported blocks](#supported-blocks)
 
-## Running unit tests
+## Type of content
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can display any content you want and configure your style to your liking. But we offer you these two options by default:
 
-## Running end-to-end tests
+-   Post: which allows you to use all the potential of Notion to write your best articles.
+-   Project: to showcase your projects in an attractive visual format.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+For both, only the styles change, the components are the same:
 
-## Further help
+-   Notion databases: display multiple items
+-   Notion pages: display the content in blocks for each item.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Get started
+
+```bash
+npm install ngx-notion-cms
+```
+
+## Example
+
+### Add database component
+
+### Add page component
+
+### Aditional options
+
+#### Custom Styles
+
+A implementar
+
+#### Manejo de caché
+
+A implementar
+
+## Supported Blocks
+
+Most common block types are supported. We happily accept pull requests to add support for the missing blocks.
+
+| Block Type        | Supported  | Notes                  |
+| ----------------- | ---------- | ---------------------- |
+| Table Of Contents | ✅ Yes     |
+| Text              | ✅ Yes     |                        |
+| Heading           | ✅ Yes     |                        |
+| Image             | ✅ Yes     |                        |
+| Image Caption     | ❌ Missing |                        |
+| Bulleted List     | ✅ Yes     |                        |
+| Numbered List     | ✅ Yes     |                        |
+| Quote             | ✅ Yes     |                        |
+| Callout           | ✅ Yes     |                        |
+| Column            | ✅ Yes     |                        |
+| iframe            | ✅ Yes     |                        |
+| Video             | ✅ Yes     | Only embedded videos   |
+| Divider           | ✅ Yes     |                        |
+| Link              | ✅ Yes     |                        |
+| Code              | ✅ Yes     |                        |
+| Web Bookmark      | ✅ Yes     |                        |
+| Toggle List       | ❌ Missing |                        |
+| Page Links        | ✅ Yes     |                        |
+| Header            | ❌ Missing | Enable with `fullPage` |
+| Databases         | ❌ Missing |
+| Checkbox          | ❌ Missing |

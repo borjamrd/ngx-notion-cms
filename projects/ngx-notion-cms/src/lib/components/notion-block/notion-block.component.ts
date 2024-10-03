@@ -4,6 +4,7 @@ import { NotionBlock } from '../../types/block.type';
 import { NotionBlockTextComponent } from '../notion-block-text/notion-block-text.component';
 import { Nl2brPipe } from '../../pipes/nl2br.pipe';
 import { SecureResourceUrlPipe } from '../../pipes/safe-resource-url.pipe';
+import { NotionBlockCodeComponent } from '../notion-block-code/notion-block-code.component';
 
 @Component({
   selector: 'ngx-notion-block',
@@ -12,7 +13,8 @@ import { SecureResourceUrlPipe } from '../../pipes/safe-resource-url.pipe';
     CommonModule,
     NotionBlockTextComponent,
     Nl2brPipe,
-    SecureResourceUrlPipe
+    SecureResourceUrlPipe,
+    NotionBlockCodeComponent
   ],
   templateUrl: './notion-block.component.html',
   styleUrl: './notion-block.component.css',

@@ -1,48 +1,5 @@
+@import 'highlight.js/styles/monokai.css';
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-    :root {
-        --baseOne: hsl(0, 0%, 100%);
-        --baseTwo: hsl(252, 2%, 51%);
-        --baseThree: hsl(0, 0%, 96%);
-        --baseFour: hsl(0, 0%, 100%);
-        --accent1: hsl(6, 100%, 80%);
-    }
-
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --baseOne: hsl(229, 57%, 11%);
-            --baseTwo: hsl(243, 100%, 93%);
-            --baseThree: hsl(228, 56%, 26%);
-            --baseFour: hsl(229, 57%, 11%);
-            --accent1: hsl(6, 100%, 80%);
-        }
-    }
-
-    :root[data-theme="dark"] {
-        --baseOne: hsl(229, 57%, 11%);
-        --baseTwo: hsl(243, 100%, 93%);
-        --baseThree: hsl(228, 56%, 26%);
-        --baseFour: hsl(229, 57%, 11%);
-        --accent1: hsl(6, 100%, 80%);
-    }
-
-    :root[data-theme="light"] {
-        --baseOne: hsl(0, 0%, 100%);
-        --baseTwo: hsl(252, 2%, 51%);
-        --baseThree: hsl(0, 0%, 96%);
-        --baseFour: hsl(0, 0%, 100%);
-        --accent1: hsl(6, 100%, 80%);
-    }
-
-    :root[data-theme="third"] {
-        --baseOne: hsl(167, 56%, 22%);
-        --baseTwo: hsl(140, 69%, 40%);
-        --baseThree: hsl(0, 0%, 0%);
-        --baseFour: hsl(0, 3%, 13%);
-        --accent1: hsl(6, 100%, 80%);
-    }
-}

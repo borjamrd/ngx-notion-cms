@@ -8,7 +8,8 @@
 
 # Node
 /node_modules
-/projects/*/node_modules
+/projects/ngx-notion-cms/node_modules/
+/projects/ngx-notion-testbed-app/node_modules/
 npm-debug.log
 yarn-error.log
 

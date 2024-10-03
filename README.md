@@ -29,8 +29,8 @@ You can display any content you want and configure your style to your liking. Bu
 
 For both, only the styles change, the components are the same:
 
--   Notion databases: display multiple items
--   Notion pages: display the content in blocks for each item.
+-   Notion databases: display multiple items based on databaseId
+-   Notion pages: display the content in blocks for each item based on pageId
 
 ## Get started
 

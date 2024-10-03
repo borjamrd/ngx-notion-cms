@@ -1,19 +1,17 @@
-import { NotionBlock } from "../types";
-
+import { NotionBlock } from '../types';
 
 export const getBlockImageURL = (url: string, block: NotionBlock) => {
-
     if (url.startsWith('data:')) {
-        return url
+        return url;
     }
 
     // more recent versions of notion don't proxy unsplash images
     if (url.startsWith('https://images.unsplash.com')) {
-        return url
+        return url;
     }
 
     try {
-        const u = new URL(url)
+        const u = new URL(url);
 
         if (
             u.pathname.startsWith('/secure.notion-static.com') &&
@@ -25,7 +23,7 @@ export const getBlockImageURL = (url: string, block: NotionBlock) => {
                 u.searchParams.has('X-Amz-Algorithm')
             ) {
                 // if the URL is already signed, then use it as-is
-                return url
+                return url;
             }
         }
     } catch {
@@ -33,23 +31,23 @@ export const getBlockImageURL = (url: string, block: NotionBlock) => {
     }
 
     if (url.startsWith('/images')) {
-        url = `https://www.notion.so${url}`
+        url = `https://www.notion.so${url}`;
     }
 
-    url = `https://www.notion.so${url.startsWith('/image') ? url : `/image/${encodeURIComponent(url)}`
-        }`
+    url = `https://www.notion.so${
+        url.startsWith('/image') ? url : `/image/${encodeURIComponent(url)}`
+    }`;
 
-    const notionImageUrlV2 = new URL(url)
-    let table = block.parent_table === 'space' ? 'block' : block.parent_table
+    const notionImageUrlV2 = new URL(url);
+    let table = block.parent_table === 'space' ? 'block' : block.parent_table;
     if (table === 'collection' || table === 'team') {
-        table = 'block'
+        table = 'block';
     }
-    notionImageUrlV2.searchParams.set('table', table)
-    notionImageUrlV2.searchParams.set('id', block.id)
-    notionImageUrlV2.searchParams.set('cache', 'v2')
+    notionImageUrlV2.searchParams.set('table', table);
+    notionImageUrlV2.searchParams.set('id', block.id);
+    notionImageUrlV2.searchParams.set('cache', 'v2');
 
-    url = notionImageUrlV2.toString()
+    url = notionImageUrlV2.toString();
 
-    return url
-}
-
+    return url;
+};

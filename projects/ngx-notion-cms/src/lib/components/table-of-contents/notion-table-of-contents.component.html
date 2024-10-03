@@ -1,11 +1,10 @@
 <ul>
-  @for (toc of tableOfContents; track $index) {
-    <li
-      (click)="scrollToBlock.emit(toc.id)"
-      class="cursor-pointer underline text-gray-600 dark:text-gray-400 rounded-md px-1.5 py-0.5 hover:bg-gray-100 dark:hover:bg-gray-700"
-      [ngStyle]="{ 'margin-left.px': toc.indentLevel * 20 }"
-    >
-      {{ toc.text }}
-    </li>
-  }
+    @for (toc of tableOfContents; track $index) {
+        <li
+            (click)="scrollToBlock.emit(toc.id)"
+            class="cursor-pointer underline text-gray-600 dark:text-gray-400 rounded-md px-1.5 py-0.5 hover:bg-gray-100 dark:hover:bg-gray-700"
+            [ngStyle]="{ 'margin-left.px': toc.indentLevel * 20 }">
+            {{ toc.text }}
+        </li>
+    }
 </ul>

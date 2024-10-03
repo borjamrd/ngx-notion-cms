@@ -7,15 +7,14 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withFetch()),
-    provideRouter(routes),
-    provideClientHydration(),
-    provideHighlightOptions({
-      fullLibraryLoader: () => import('highlight.js'),
-      lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
-    })
-  ]
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideHttpClient(withFetch()),
+        provideRouter(routes),
+        provideClientHydration(),
+        provideHighlightOptions({
+            fullLibraryLoader: () => import('highlight.js'),
+            lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
+        }),
+    ],
 };

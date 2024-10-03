@@ -1,23 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { NgxNotionDatabase, NotionBlock, NotionDatabaseItem } from 'ngx-notion-cms';
+import { NgxNotionDatabaseComponent, NotionDatabaseItem } from 'ngx-notion-cms';
 
 @Component({
-  selector: 'app-posts-view',
-  standalone: true,
-  imports: [
-    CommonModule,
-    NgxNotionDatabase,
-    RouterModule
-  ],
-  templateUrl: './posts-view.component.html',
-  styleUrl: './posts-view.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-posts-view',
+    standalone: true,
+    imports: [CommonModule, NgxNotionDatabaseComponent, RouterModule],
+    templateUrl: './posts-view.component.html',
+    styleUrl: './posts-view.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostsViewComponent {
-  private router = inject(Router)
-  setPageItemSelected(id: NotionDatabaseItem['id']) {
-    this.router.navigate(['posts', id])
-  }
+    private router = inject(Router);
+    setPageItemSelected(id: NotionDatabaseItem['id']) {
+        this.router.navigate(['posts', id]);
+    }
 }

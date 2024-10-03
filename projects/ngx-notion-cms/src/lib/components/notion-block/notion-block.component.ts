@@ -8,29 +8,28 @@ import { NotionBlockCodeComponent } from '../notion-block-code/notion-block-code
 import { provideHighlightOptions } from 'ngx-highlightjs';
 
 @Component({
-  selector: 'ngx-notion-block',
-  standalone: true,
-  imports: [
-    CommonModule,
-    NotionBlockTextComponent,
-    Nl2brPipe,
-    SecureResourceUrlPipe,
-    NotionBlockCodeComponent
-  ],
-  providers: [
-    provideHighlightOptions({
-      fullLibraryLoader: () => import('highlight.js'),
-      lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
-    })
-  ],
-  templateUrl: './notion-block.component.html',
-  styleUrl: './notion-block.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'ngx-notion-block',
+    standalone: true,
+    imports: [
+        CommonModule,
+        NotionBlockTextComponent,
+        Nl2brPipe,
+        SecureResourceUrlPipe,
+        NotionBlockCodeComponent,
+    ],
+    providers: [
+        provideHighlightOptions({
+            fullLibraryLoader: () => import('highlight.js'),
+            lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
+        }),
+    ],
+    templateUrl: './notion-block.component.html',
+    styleUrl: './notion-block.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotionBlockComponent {
+    notionBlock = input.required<NotionBlock>();
+    previousBlockType = input<NotionBlock['type']>();
 
-  notionBlock = input.required<NotionBlock>();
-  previousBlockType = input<NotionBlock['type']>();
-
-  numberedListPosition = 1
+    numberedListPosition = 1;
 }

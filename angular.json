@@ -1,160 +1,150 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "ngx-notion-cms": {
-      "projectType": "library",
-      "root": "projects/ngx-notion-cms",
-      "sourceRoot": "projects/ngx-notion-cms/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ngx-notion-cms/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-notion-cms/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ngx-notion-cms/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/ngx-notion-cms/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/ngx-notion-cms/**/*.ts",
-              "projects/ngx-notion-cms/**/*.html"
-            ],
-            "eslintConfig": "projects/ngx-notion-cms/eslint.config.js"
-          }
-        }
-      }
-    },
-    "ngx-notion-testbed-app": {
-      "projectType": "application",
-      "schematics": {},
-      "root": "projects/ngx-notion-testbed-app",
-      "sourceRoot": "projects/ngx-notion-testbed-app/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:application",
-          "options": {
-            "outputPath": "dist/ngx-notion-testbed-app",
-            "index": "projects/ngx-notion-testbed-app/src/index.html",
-            "browser": "projects/ngx-notion-testbed-app/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "projects/ngx-notion-testbed-app/tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/ngx-notion-testbed-app/public"
-              }
-            ],
-            "styles": [
-              "projects/ngx-notion-testbed-app/src/styles.css"
-            ],
-            "scripts": [],
-            "server": "projects/ngx-notion-testbed-app/src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "projects/ngx-notion-testbed-app/server.ts"
-            }
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "ngx-notion-cms": {
+            "projectType": "library",
+            "root": "projects/ngx-notion-cms",
+            "sourceRoot": "projects/ngx-notion-cms/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
+                    "options": {
+                        "project": "projects/ngx-notion-cms/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/ngx-notion-cms/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                            "tsConfig": "projects/ngx-notion-cms/tsconfig.lib.json"
+                        }
+                    },
+                    "defaultConfiguration": "production"
                 },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "tsConfig": "projects/ngx-notion-cms/tsconfig.spec.json",
+                        "polyfills": ["zone.js", "zone.js/testing"]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "projects/ngx-notion-cms/**/*.ts",
+                            "projects/ngx-notion-cms/**/*.html"
+                        ],
+                        "eslintConfig": "projects/ngx-notion-cms/eslint.config.js"
+                    }
                 }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
             }
-          },
-          "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "ngx-notion-testbed-app:build:production"
-            },
-            "development": {
-              "buildTarget": "ngx-notion-testbed-app:build:development"
+        "ngx-notion-testbed-app": {
+            "projectType": "application",
+            "schematics": {},
+            "root": "projects/ngx-notion-testbed-app",
+            "sourceRoot": "projects/ngx-notion-testbed-app/src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:application",
+                    "options": {
+                        "outputPath": "dist/ngx-notion-testbed-app",
+                        "index": "projects/ngx-notion-testbed-app/src/index.html",
+                        "browser": "projects/ngx-notion-testbed-app/src/main.ts",
+                        "polyfills": ["zone.js"],
+                        "tsConfig": "projects/ngx-notion-testbed-app/tsconfig.app.json",
+                        "assets": [
+                            {
+                                "glob": "**/*",
+                                "input": "projects/ngx-notion-testbed-app/public"
+                            }
+                        ],
+                        "styles": [
+                            "projects/ngx-notion-testbed-app/src/styles.css"
+                        ],
+                        "scripts": [],
+                        "server": "projects/ngx-notion-testbed-app/src/main.server.ts",
+                        "prerender": true,
+                        "ssr": {
+                            "entry": "projects/ngx-notion-testbed-app/server.ts"
+                        }
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kB",
+                                    "maximumError": "1MB"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kB",
+                                    "maximumError": "4kB"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "optimization": false,
+                            "extractLicenses": false,
+                            "sourceMap": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "buildTarget": "ngx-notion-testbed-app:build:production"
+                        },
+                        "development": {
+                            "buildTarget": "ngx-notion-testbed-app:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n"
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "tsConfig": "projects/ngx-notion-testbed-app/tsconfig.spec.json",
+                        "assets": [
+                            {
+                                "glob": "**/*",
+                                "input": "projects/ngx-notion-testbed-app/public"
+                            }
+                        ],
+                        "styles": [
+                            "projects/ngx-notion-testbed-app/src/styles.css"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "projects/ngx-notion-testbed-app/**/*.ts",
+                            "projects/ngx-notion-testbed-app/**/*.html"
+                        ],
+                        "eslintConfig": "projects/ngx-notion-testbed-app/eslint.config.js"
+                    }
+                }
             }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "projects/ngx-notion-testbed-app/tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/ngx-notion-testbed-app/public"
-              }
-            ],
-            "styles": [
-              "projects/ngx-notion-testbed-app/src/styles.css"
-            ],
-            "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/ngx-notion-testbed-app/**/*.ts",
-              "projects/ngx-notion-testbed-app/**/*.html"
-            ],
-            "eslintConfig": "projects/ngx-notion-testbed-app/eslint.config.js"
-          }
         }
-      }
+    },
+    "cli": {
+        "analytics": "5e7ff7bb-b7db-448e-8b5b-234940022fde",
+        "schematicCollections": ["@angular-eslint/schematics"]
     }
-  },
-  "cli": {
-    "analytics": "5e7ff7bb-b7db-448e-8b5b-234940022fde",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
-  }
 }

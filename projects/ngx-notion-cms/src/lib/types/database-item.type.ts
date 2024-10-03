@@ -1,4 +1,3 @@
-
 export interface NotionDatabaseItem {
     id: string;
     name: string;
@@ -6,6 +5,5 @@ export interface NotionDatabaseItem {
     date: string;
     description: string;
     status: string;
-    related: string[]
+    related: string[];
 }
-

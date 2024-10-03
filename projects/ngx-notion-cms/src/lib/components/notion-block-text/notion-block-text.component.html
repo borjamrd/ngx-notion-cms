@@ -1,36 +1,43 @@
 @if (notionBlock.properties) {
-<p class="inline gap-1.5 text-base leading-relaxed">
-  @for (property of notionBlock.properties.title; track $index) { @if
-  (property.length > 1 && property[1][0] == "i") {
-  <span class="italic">{{ property[0] }}</span>
-  } @else if (property.length > 1 && property[1][0] == "b") {
-  <span class="font-bold">{{ property[0] }}</span>
-  } @else if (property.length > 1 && property[1][0] == "i") {
-  <span class="italic">{{ property[0] }}</span>
-  } @else if (property.length > 1 && property[1][0][0] == "a") {
-  <a
-    target="_blank"
-    [title]="property[1][0][1]"
-    [href]="property[1][0][1]"
-    class="underline text-slate-700 dark:text-slate-400"
-    >{{ property[0] }}</a
-  >
-  } @else if (property.length > 1 && property[1][0] == "_") {
-  <span class="underline">{{ property[0] }}</span>
-  } @else if (property.length > 1 && property[1][0] == "s") {
-  <span class="line-through">{{ property[0] }}</span>
-  } @else if (property.length > 1 && property[1][0] == "c") {
-  <code>
-    <span
-      [ngClass]="notionBlock.properties.checked ? 'line-through' : ''"
-      class="text-wrap px-2 py-1 rounded-md dark:bg-red-950 bg-red-400 bg-opacity-30 dark:text-red-300 text-red-600"
-      >{{ property[0] }}</span
-    >
-  </code>
-  } @else {
-  <span [ngClass]="notionBlock.properties.checked ? 'line-through' : ''">{{
-    property
-  }}</span>
-  } }
-</p>
+    <!-- eslint eqeqeq: ["error", "always"] -->
+    <p class="inline gap-1.5 text-base leading-relaxed">
+        @for (property of notionBlock.properties.title; track $index) {
+            @if (property.length > 1 && property[1][0] === 'i') {
+                <span class="italic">{{ property[0] }}</span>
+            } @else if (property.length > 1 && property[1][0] === 'b') {
+                <span class="font-bold">{{ property[0] }}</span>
+            } @else if (property.length > 1 && property[1][0] === 'i') {
+                <span class="italic">{{ property[0] }}</span>
+            } @else if (property.length > 1 && property[1][0][0] === 'a') {
+                <a
+                    target="_blank"
+                    [title]="property[1][0][1]"
+                    [href]="property[1][0][1]"
+                    class="underline text-slate-700 dark:text-slate-400"
+                    >{{ property[0] }}</a
+                >
+            } @else if (property.length > 1 && property[1][0] === '_') {
+                <span class="underline">{{ property[0] }}</span>
+            } @else if (property.length > 1 && property[1][0] === 's') {
+                <span class="line-through">{{ property[0] }}</span>
+            } @else if (property.length > 1 && property[1][0] === 'c') {
+                <code>
+                    <span
+                        [ngClass]="
+                            notionBlock.properties.checked ? 'line-through' : ''
+                        "
+                        class="text-wrap px-2 py-1 rounded-md dark:bg-red-950 bg-red-400 bg-opacity-30 dark:text-red-300 text-red-600"
+                        >{{ property[0] }}</span
+                    >
+                </code>
+            } @else {
+                <span
+                    [ngClass]="
+                        notionBlock.properties.checked ? 'line-through' : ''
+                    "
+                    >{{ property }}</span
+                >
+            }
+        }
+    </p>
 }

@@ -33,13 +33,13 @@ export interface CopiedFromPointer {
 
 
 export interface Properties {
-    title: Array<string[]>;
-    language?: Array<string[]>;
+    title: string[][];
+    language?: string[][];
     checked?: 'Yes' | 'No'[];
-    size?: Array<string[]>;
-    source?: Array<string[]>;
-    link?: Array<string[]>;
-    description?: Array<string[]>;
+    size?: string[][];
+    source?: string[][];
+    link?: string[][];
+    description?: string[][];
 }
 
 

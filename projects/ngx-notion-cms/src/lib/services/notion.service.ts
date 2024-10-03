@@ -1,8 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, of, startWith } from 'rxjs';
+import { map } from 'rxjs';
 import { NotionBlock, NotionDatabaseItem } from './../types';
 import { NotionHttpService } from './http-notion.service';
-import { CacheService } from './cache.service';
 
 
 @Injectable({
@@ -20,8 +19,10 @@ export class NgxNotionService {
   public getPageBlocks(id: string) {
     return this.http.get<NotionBlock[]>(`https://notion-api.splitbee.io/v1/page/${id}`).pipe(
       map(response => {
-        let blocks: NotionBlock[] = [];
+        const blocks: NotionBlock[] = [];
         if (response.data) {
+
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           Object.values(response.data).forEach((key: any) => {
             blocks.push(key.value);
           });

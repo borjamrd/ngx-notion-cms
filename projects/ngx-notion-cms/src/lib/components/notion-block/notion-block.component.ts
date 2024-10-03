@@ -5,6 +5,7 @@ import { NotionBlockTextComponent } from '../notion-block-text/notion-block-text
 import { Nl2brPipe } from '../../pipes/nl2br.pipe';
 import { SecureResourceUrlPipe } from '../../pipes/safe-resource-url.pipe';
 import { NotionBlockCodeComponent } from '../notion-block-code/notion-block-code.component';
+import { provideHighlightOptions } from 'ngx-highlightjs';
 
 @Component({
   selector: 'ngx-notion-block',
@@ -15,6 +16,12 @@ import { NotionBlockCodeComponent } from '../notion-block-code/notion-block-code
     Nl2brPipe,
     SecureResourceUrlPipe,
     NotionBlockCodeComponent
+  ],
+  providers: [
+    provideHighlightOptions({
+      fullLibraryLoader: () => import('highlight.js'),
+      lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
+    })
   ],
   templateUrl: './notion-block.component.html',
   styleUrl: './notion-block.component.css',

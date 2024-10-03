@@ -1,7 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
-import { ThemeService } from './services/theme.service';
 import { ToggleButtonComponent } from "./components/toggle-button/toggle-button.component";
 
 @Component({

@@ -16,6 +16,9 @@ import { map, switchMap } from 'rxjs/operators';
   templateUrl: './post-view.component.html',
   styleUrl: './post-view.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block w-full'
+  }
 })
 export class PostViewComponent {
   route = inject(ActivatedRoute)

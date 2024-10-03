@@ -1,10 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, effect, inject, input, output, signal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, input, OnInit, output, signal } from '@angular/core';
 import { PostTagDirective } from '../../directives/post-tag.directive';
 import { NotionBlock, NotionDatabaseItem } from '../../types';
-import { getBlockImageURL } from '../../utils/utils';
-import { NgxNotionService } from '../../services/notion.service';
 
 @Component({
   selector: 'ngx-notion-database-item',
@@ -17,11 +14,10 @@ import { NgxNotionService } from '../../services/notion.service';
   styleUrl: './database-item.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DatabaseItemComponent {
+export class DatabaseItemComponent implements OnInit {
 
 
   public prefetchPageElements = output<string>()
-  private ngxNotionService = inject(NgxNotionService)
   private cdr = inject(ChangeDetectorRef)
   public databaseItem = input.required<NotionDatabaseItem>()
   public clicked = output<NotionDatabaseItem['id']>()

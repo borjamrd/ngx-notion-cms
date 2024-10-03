@@ -1,40 +1,45 @@
-@let query = notionBlocksQuery | async; @if (query){ @if (query.isPending) {
-<div>loading</div>
-} @else { @if (query.data) {
-<!-- TODO TABLE OF CONTENTS -->
-<ngx-notion-table-of-contents
-  (scrollToBlock)="scrollToBlock($event)"
-  [blocks]="query.data!"
-/>
+<ngx-layout-container>
+  @let query = notionBlocksQuery | async; @if (query){ @if (query.isPending) {
+  <div>loading</div>
+  } @else { @if (query.data) {
+  <!-- TODO TABLE OF CONTENTS -->
+  <ngx-notion-table-of-contents
+    (scrollToBlock)="scrollToBlock($event)"
+    [blocks]="query.data!"
+  />
 
-<div class="flex flex-col gap-2 px-2">
-  @for (notionBlock of query.data!; track $index) { @if ( notionBlock.type !==
-  "page" && notionBlock.type !== "collection_view_page" ) {
-  <ng-container
-    [ngTemplateOutlet]="treeBlock"
-    [ngTemplateOutletContext]="{
-      $implicit: notionBlock,
-      prevBlockType: query.data![$index - 1].type
-    }"
-  ></ng-container>
-  } }
-</div>
-
-<ng-template #treeBlock let-data let-prevBlockType="prevBlockType">
-  <ngx-notion-block [previousBlockType]="prevBlockType" [notionBlock]="data" />
-  @if (data?.content; as childBlocks) { @for (child of childBlocks; track
-  $index) {
-  <div class="ms-10">
+  <div class="flex flex-col gap-2 px-2">
+    @for (notionBlock of query.data!; track $index) { @if ( notionBlock.type !==
+    "page" && notionBlock.type !== "collection_view_page" ) {
     <ng-container
       [ngTemplateOutlet]="treeBlock"
       [ngTemplateOutletContext]="{
-        $implicit: getchildContent(child),
-        prevBlockType: childBlocks[$index - 1]?.type
+        $implicit: notionBlock,
+        prevBlockType: query.data![$index - 1].type
       }"
     ></ng-container>
+    } }
   </div>
-  } }
-</ng-template>
-} @if (query.error){
-<div>error</div>
-} }}
+
+  <ng-template #treeBlock let-data let-prevBlockType="prevBlockType">
+    <ngx-notion-block
+      [previousBlockType]="prevBlockType"
+      [notionBlock]="data"
+    />
+    @if (data?.content; as childBlocks) { @for (child of childBlocks; track
+    $index) {
+    <div class="ms-10">
+      <ng-container
+        [ngTemplateOutlet]="treeBlock"
+        [ngTemplateOutletContext]="{
+          $implicit: getchildContent(child),
+          prevBlockType: childBlocks[$index - 1]?.type
+        }"
+      ></ng-container>
+    </div>
+    } }
+  </ng-template>
+  } @if (query.error){
+  <div>error</div>
+  } }}
+</ngx-layout-container>

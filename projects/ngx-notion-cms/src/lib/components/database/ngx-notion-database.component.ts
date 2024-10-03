@@ -4,6 +4,7 @@ import { INgxNotionResponse } from '../../services/http-notion.service';
 import { NgxNotionService } from '../../services/notion.service';
 import { NotionDatabaseItem } from '../../types';
 import { DatabaseItemComponent } from '../database-item/database-item.component';
+import { LayoutContainerComponent } from "../layout-container/layout-container.component";
 
 
 export type TableType = 'projects' | 'blog'
@@ -18,7 +19,8 @@ export interface TableOptions {
   standalone: true,
   imports: [
     DatabaseItemComponent,
-    CommonModule
+    CommonModule,
+    LayoutContainerComponent
   ],
   templateUrl: './ngx-notion-database.component.html',
   styles: ``,

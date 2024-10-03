@@ -6,6 +6,7 @@ import { INgxNotionResponse } from '../../services/http-notion.service';
 import { NotionBlockComponent } from "../notion-block/notion-block.component";
 import { map, Observable } from 'rxjs';
 import { NotionTableOfContentsComponent } from '../table-of-contents/notion-table-of-contents.component';
+import { LayoutContainerComponent } from "../layout-container/layout-container.component";
 
 const pageBlocks: NotionBlock[] = []
 @Component({
@@ -15,7 +16,8 @@ const pageBlocks: NotionBlock[] = []
     CommonModule,
     NgTemplateOutlet,
     NotionBlockComponent,
-    NotionTableOfContentsComponent
+    NotionTableOfContentsComponent,
+    LayoutContainerComponent
   ],
   templateUrl: './notion-page.component.html',
   styleUrl: './notion-page.component.css',

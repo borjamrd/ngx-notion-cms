@@ -1,6 +1,6 @@
 {
   "name": "notion-workspace",
-  "version": "0.0.0",
+  "version": "0.0.0-beta",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +11,7 @@
     "ngx-notion-cms:lint": "ng lint ngx-notion-cms",
     "ngx-notion-cms:test": "ng test ngx-notion-cms --no-watch --no-progress --browsers=ChromeHadless",
     "ngx-notion-cms:build": "ng build ngx-notion-cms",
-    "ngx-notion-cms:publish": "npm run ngx-notion-cms:lint && npm run npx-notion-cms:test && npm run ngx-notion-cms:build && npm publish dist/ngx-notion-cms",
+    "ngx-notion-cms:publish": "npm run ngx-notion-cms:build && npm publish dist/ngx-notion-cms/",
     "serve:ssr:ngx-notion-testbed-app": "node dist/ngx-notion-testbed-app/server/server.mjs"
   },
   "private": true,

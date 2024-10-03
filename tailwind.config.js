@@ -24,7 +24,7 @@ module.exports = {
         dark: {
           primary: '#3b82f6',   // Blue 500
           secondary: '#6b21a8', // Purple 700
-          background: '#1f2937', // Gray 800
+          background: '#0F0F11', // Gray 800
           foreground: '#ffffff', // White
           accent: '#d97706',     // Amber 600
           muted: '#374151',      // Gray 700

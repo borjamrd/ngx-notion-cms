@@ -36,9 +36,7 @@ export class NotionPageComponent implements OnInit {
     public pageId = input.required<string>();
     public iconPage = signal<string | undefined>(undefined);
 
-    //TODO  tipar
     public notionBlocksQuery!: INgxNotionResponse<NotionBlock[]>;
-    // INgxNotionResponse<any>
     private cdr = inject(ChangeDetectorRef);
 
     ngOnInit(): void {
@@ -50,13 +48,12 @@ export class NotionPageComponent implements OnInit {
     getchildContent(id: string): Observable<NotionBlock | undefined> {
         return this.notionBlocksQuery.pipe(
             map(query => {
-                // Verificar si hay datos disponibles
                 if (query && query.data) {
                     return query.data.find(
                         block => block.id === id
                     ) as NotionBlock;
                 }
-                return undefined; // Retorna undefined si no hay datos
+                return undefined;
             })
         );
     }

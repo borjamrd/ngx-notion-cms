@@ -11,7 +11,7 @@ import {
     providedIn: 'root',
 })
 export class ThemeService {
-    themeSignal = signal<string>('dark');
+    themeSignal = signal<string>('light');
 
     document: Document = inject(DOCUMENT);
     private _renderer2: Renderer2;

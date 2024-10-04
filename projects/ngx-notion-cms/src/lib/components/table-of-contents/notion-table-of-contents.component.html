@@ -1,4 +1,4 @@
-<ul>
+<ul class="border-l-2 border-l-light-secondary pl-3 ml-2">
     @for (toc of tableOfContents; track $index) {
         <li
             (click)="scrollToBlock.emit(toc.id)"

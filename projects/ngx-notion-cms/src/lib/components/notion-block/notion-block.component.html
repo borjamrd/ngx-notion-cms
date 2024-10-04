@@ -1,129 +1,117 @@
+@let notionBlock = notionBlockSignal();
+
 @defer {
-    @if (notionBlock()!.properties) {
-        @switch (notionBlock()!.type) {
-            @case ('bulleted_list') {
-                <li>
-                    {{ (notionBlock().properties?.title)![0] }}
-                </li>
-            }
-            @case ('numbered_list') {
-                <li class="list-none">
-                    {{ numberedListPosition }}.
-                    {{ (notionBlock().properties?.title)![0] }}
-                </li>
-            }
-            @case ('page') {}
-            @case ('collection_view_page') {}
-            @case ('header') {
-                <h1 [id]="notionBlock().id" class="text-3xl font-bold mb-5">
-                    {{ (notionBlock().properties?.title)![0] }}
-                </h1>
-            }
-            @case ('sub_header') {
-                <h2 [id]="notionBlock().id" class="text-2xl font-bold mb-3">
-                    {{ (notionBlock().properties?.title)![0] }}
-                </h2>
-            }
-            @case ('sub_sub_header') {
-                <h3 [id]="notionBlock().id" class="text-xl font-bold mb-1">
-                    {{ (notionBlock().properties?.title)![0] }}
-                </h3>
-            }
-            @case ('quote') {
+    @switch (notionBlock!.type) {
+        @case ('bulleted_list') {
+            <li>
+                {{ (notionBlock.properties?.title)![0] }}
+            </li>
+        }
+        @case ('numbered_list') {
+            <li class="list-none">
+                {{ numberedListPosition }}.
+                {{ (notionBlock.properties?.title)![0] }}
+            </li>
+        }
+        @case ('page') {
+            <ngx-page-cover [notionBlock]="notionBlock" />
+        }
+        @case ('collection_view_page') {}
+        @case ('header') {
+            <h1 [id]="notionBlock.id" class="text-3xl font-bold mb-5">
+                {{ (notionBlock.properties?.title)![0] }}
+            </h1>
+        }
+        @case ('sub_header') {
+            <h2 [id]="notionBlock.id" class="text-2xl font-bold mb-3">
+                {{ (notionBlock.properties?.title)![0] }}
+            </h2>
+        }
+        @case ('sub_sub_header') {
+            <h3 [id]="notionBlock.id" class="text-xl font-bold mb-1">
+                {{ (notionBlock.properties?.title)![0] }}
+            </h3>
+        }
+        @case ('quote') {
+            <div
+                class="h-7 px-4 flex items-center border-s-2 border-slate-800 dark:border-slate-200">
+                <blockquote>
+                    <ngx-notion-block-text [notionBlock]="notionBlock" />
+                </blockquote>
+            </div>
+        }
+        @case ('text') {
+            <ngx-notion-block-text [notionBlock]="notionBlock" />
+        }
+        @case ('code') {
+            <ngx-notion-block-code [notionBlock]="notionBlock" />
+        }
+        @case ('to_do') {
+            <div class="flex items-center gap-2">
+                <input
+                    disabled
+                    id="disabled-checked-checkbox"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    [checked]="notionBlock!.properties!.checked" />
+                <ngx-notion-block-text [notionBlock]="notionBlock" />
+            </div>
+        }
+        @case ('callout') {
+            <ngx-notion-block-callout [notionBlock]="notionBlock" />
+        }
+        @case ('image') {
+            <!-- <ngx-notion-block-image [notionBlock]="notionBlock" /> -->
+        }
+        @case ('table_row') {}
+        @case ('bookmark') {
+            <a
+                target="_blank"
+                class="no-underline"
+                [href]="notionBlock!.properties!.link![0][0]">
                 <div
-                    class="h-7 px-4 flex items-center border-s-2 border-slate-800 dark:border-slate-200">
-                    <blockquote>
-                        {{ (notionBlock().properties?.title)![0] }}
-                    </blockquote>
-                </div>
-            }
-            @case ('text') {
-                <ngx-notion-block-text [notionBlock]="notionBlock()" />
-            }
-            @case ('code') {
-                <ngx-notion-block-code [notionBlock]="notionBlock()" />
-            }
-            @case ('to_do') {
-                <div class="flex items-center gap-2">
-                    <input
-                        disabled
-                        id="disabled-checked-checkbox"
-                        type="checkbox"
-                        value=""
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        [checked]="notionBlock()!.properties!.checked" />
-                    <ngx-notion-block-text [notionBlock]="notionBlock()" />
-                </div>
-            }
-            @case ('callout') {
-                <div
-                    class="flex gap-2 p-2 bg-yellow-100/25 dark:bg-yellow-100/20 dark:text-white text-yellow-800 rounded-md">
-                    <span>{{ notionBlock()!.format?.page_icon }}</span>
+                    class="flex items-center gap-2 p-2 bg-blue-100/25 dark:bg-blue-100/20 dark:text-white text-blue-800 rounded-md">
+                    <span>{{ notionBlock!.format?.page_icon }}</span>
                     <p
                         [innerHTML]="
-                            notionBlock()!.properties!.title![0] | nl2br
+                            notionBlock!.properties!.title![0] | nl2br
+                        "></p>
+                    <p
+                        [innerHTML]="
+                            notionBlock!.properties!.description![0] | nl2br
                         "></p>
                 </div>
-            }
-            @case ('image') {
-                <!-- <ngx-notion-block-image [notionBlock]="notionBlock()" /> -->
-            }
-            @case ('table_row') {}
-            @case ('bookmark') {
-                <a
-                    target="_blank"
-                    class="no-underline"
-                    [href]="notionBlock()!.properties!.link![0][0]">
-                    <div
-                        class="flex items-center gap-2 p-2 bg-blue-100/25 dark:bg-blue-100/20 dark:text-white text-blue-800 rounded-md">
-                        <span>{{ notionBlock()!.format?.page_icon }}</span>
-                        <p
-                            [innerHTML]="
-                                notionBlock()!.properties!.title![0] | nl2br
-                            "></p>
-                        <p
-                            [innerHTML]="
-                                notionBlock()!.properties!.description![0]
-                                    | nl2br
-                            "></p>
-                    </div>
-                </a>
-            }
-            @case ('video') {
-                <div>
-                    <iframe
-                        class="w-full h-96"
-                        [src]="
-                            notionBlock()!.properties!.source![0][0].replace(
-                                'watch?v=',
-                                'embed/'
-                            ) | secureResource
-                        "
-                        frameborder="0"
-                        allowfullscreen></iframe>
-                </div>
-            }
-            @case ('embed') {
-                <iframe
-                    [height]="notionBlock()!.format?.block_height"
-                    width="100%"
-                    [src]="
-                        notionBlock()!.properties!.source![0][0]
-                            | secureResource
-                    "></iframe>
-            }
-            @default {
-                <p>{{ notionBlock()!.type }}</p>
-            }
+            </a>
         }
-    } @else {
-        @switch (notionBlock()!.type) {
-            @case ('divider') {
-                <div class="flex-grow border-t border-gray-400"></div>
-            }
-            @default {
-                <br />
-            }
+        @case ('video') {
+            <div>
+                <iframe
+                    class="w-full h-96"
+                    [src]="
+                        notionBlock!.properties!.source![0][0].replace(
+                            'watch?v=',
+                            'embed/'
+                        ) | secureResource
+                    "
+                    frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+        }
+        @case ('embed') {
+            <iframe
+                [height]="notionBlock!.format?.block_height"
+                width="100%"
+                [src]="
+                    notionBlock!.properties!.source![0][0] | secureResource
+                "></iframe>
+        }
+        @case ('divider') {
+            <div class="flex-grow border-t border-gray-400"></div>
+        }
+
+        @default {
+            <br />
         }
     }
 } @placeholder {

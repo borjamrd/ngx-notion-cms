@@ -5,7 +5,7 @@ import { Pipe, type PipeTransform } from '@angular/core';
     standalone: true,
 })
 export class Nl2brPipe implements PipeTransform {
-    transform(value: string[]): unknown {
+    transform(value: string[]): string {
         const formatted = value[0].replace(/\n/g, '<br/>');
         return formatted;
     }

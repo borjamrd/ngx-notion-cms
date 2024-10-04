@@ -6,6 +6,8 @@ import { Nl2brPipe } from '../../pipes/nl2br.pipe';
 import { SecureResourceUrlPipe } from '../../pipes/safe-resource-url.pipe';
 import { NotionBlockCodeComponent } from '../notion-block-code/notion-block-code.component';
 import { provideHighlightOptions } from 'ngx-highlightjs';
+import { PageCoverComponent } from '../page-cover/page-cover.component';
+import { NotionBlockCalloutComponent } from '../notion-block-callout/notion-block-callout.component';
 
 @Component({
     selector: 'ngx-notion-block',
@@ -16,6 +18,8 @@ import { provideHighlightOptions } from 'ngx-highlightjs';
         Nl2brPipe,
         SecureResourceUrlPipe,
         NotionBlockCodeComponent,
+        PageCoverComponent,
+        NotionBlockCalloutComponent
     ],
     providers: [
         provideHighlightOptions({
@@ -28,7 +32,7 @@ import { provideHighlightOptions } from 'ngx-highlightjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotionBlockComponent {
-    notionBlock = input.required<NotionBlock>();
+    notionBlockSignal = input.required<NotionBlock>({ 'alias': 'notionBlock' });
     previousBlockType = input<NotionBlock['type']>();
 
     numberedListPosition = 1;

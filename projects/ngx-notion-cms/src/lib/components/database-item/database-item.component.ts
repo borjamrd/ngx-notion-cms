@@ -37,6 +37,8 @@ export class DatabaseItemComponent implements OnInit {
 
     private notionService = inject(NgxNotionService)
     ngOnInit() {
+
+        //!change and unsuscribe
         this.notionService.getPageBlocks(this.databaseItem().id).pipe(
             map((response) => {
                 console.log(response)

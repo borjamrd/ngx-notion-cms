@@ -1,14 +1,15 @@
+@let notionBlock = notionBlockSignal();
 @if (notionBlock.properties) {
     <!-- eslint eqeqeq: ["error", "always"] -->
     <p class="inline gap-1.5 text-base leading-relaxed">
         @for (property of notionBlock.properties.title; track $index) {
-            @if (property.length > 1 && property[1][0] === 'i') {
+            @if (property.length > 1 && property[1][0] == 'i') {
                 <span class="italic">{{ property[0] }}</span>
-            } @else if (property.length > 1 && property[1][0] === 'b') {
+            } @else if (property.length > 1 && property[1][0] == 'b') {
                 <span class="font-bold">{{ property[0] }}</span>
-            } @else if (property.length > 1 && property[1][0] === 'i') {
+            } @else if (property.length > 1 && property[1][0] == 'i') {
                 <span class="italic">{{ property[0] }}</span>
-            } @else if (property.length > 1 && property[1][0][0] === 'a') {
+            } @else if (property.length > 1 && property[1][0][0] == 'a') {
                 <a
                     target="_blank"
                     [title]="property[1][0][1]"
@@ -16,11 +17,11 @@
                     class="underline text-slate-700 dark:text-slate-400"
                     >{{ property[0] }}</a
                 >
-            } @else if (property.length > 1 && property[1][0] === '_') {
+            } @else if (property.length > 1 && property[1][0] == '_') {
                 <span class="underline">{{ property[0] }}</span>
-            } @else if (property.length > 1 && property[1][0] === 's') {
+            } @else if (property.length > 1 && property[1][0] == 's') {
                 <span class="line-through">{{ property[0] }}</span>
-            } @else if (property.length > 1 && property[1][0] === 'c') {
+            } @else if (property.length > 1 && property[1][0] == 'c') {
                 <code>
                     <span
                         [ngClass]="
@@ -32,11 +33,10 @@
                 </code>
             } @else {
                 <span
+                    [innerHTML]="property | nl2br"
                     [ngClass]="
                         notionBlock.properties.checked ? 'line-through' : ''
-                    "
-                    >{{ property }}</span
-                >
+                    "></span>
             }
         }
     </p>

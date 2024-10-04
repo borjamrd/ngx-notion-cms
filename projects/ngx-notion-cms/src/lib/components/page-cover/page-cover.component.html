@@ -1,0 +1,18 @@
+@let notionBlock = notionBlockSignal();
+
+<div class="flex flex-col gap-3 w-full">
+    @defer {
+        <img
+            height="160"
+            width="auto"
+            class="h-40 w-full object-cover rounded-3xl"
+            title="page_cover"
+            [src]="imgSrc()" />
+    } @placeholder {
+        <div class="h-40 w-full bg-slate-100 rounded-3xl"></div>
+    }
+
+    <h1 class="text-3xl font-bold mb-5">
+        {{ (notionBlock.properties?.title)![0][0] }}
+    </h1>
+</div>

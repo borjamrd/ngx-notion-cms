@@ -11,6 +11,11 @@
         "noFallthroughCasesInSwitch": true,
         "skipLibCheck": true,
         "isolatedModules": true,
+        "paths": {
+            "ngx-notion-cms": [
+                "./dist/ngx-notion-cms"
+            ]
+        },
         "esModuleInterop": true,
         "sourceMap": true,
         "declaration": false,
@@ -28,6 +33,19 @@
         "enableI18nLegacyMessageIdFormat": false,
         "strictInjectionParameters": true,
         "strictInputAccessModifiers": true,
-        "strictTemplates": true
+        "strictTemplates": true,
+        "checks": {
+            //use your prefer setting
+            "invalidBananaInBox": "error",
+            "nullishCoalescingNotNullable": "warning",
+            "missingControlFlowDirective": "error",
+            "textAttributeNotBinding": "warning",
+            "missingNgForOfLet": "error",
+            "suffixNotSupported": "warning",
+            "optionalChainNotNullable": "warning",
+            "skipHydrationNotStatic": "error",
+            "interpolatedSignalNotInvoked": "warning",
+            "uninvokedFunctionInEventBinding": "suppress"
+        }
     }
 }

@@ -11,7 +11,7 @@ Huge thanks to [react-notion](https://github.com/splitbee/react-notion), this li
 
 _This package doesn't handle the communication with the API. Check out [notion-api-worker](https://github.com/splitbee/notion-api-worker) for an easy solution_.
 
-<sub>Created by <a href="https://twitter.com/timolins">Borja Muñoz</a> with the help of all <a href="https://github.com/borjamrd/notion-workspace/graphs/contributors">contributors</a> </sub>
+<sub>Created by <a href="https://www.threads.net/@borjamrd">Borja Muñoz</a> with the help of all <a href="https://github.com/borjamrd/notion-workspace/graphs/contributors">contributors</a> </sub>
 
 ## Table of Contents
 

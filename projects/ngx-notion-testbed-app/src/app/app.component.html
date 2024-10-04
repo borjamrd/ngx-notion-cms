@@ -1,7 +1,14 @@
 <div
-    class="min-h-screen transition-colors duration-100 relative flex p-5 md:p-20 gap-4 text-light-foreground dark:text-dark-foreground bg-light-background dark:bg-dark-background">
-    <app-nav />
-    <app-toggle-button />
-
-    <router-outlet />
+    class="min-h-screen transition-colors duration-100 text-light-foreground dark:text-dark-foreground bg-light-background dark:bg-dark-background font-sans flex justify-center">
+    <div class="relative flex p-5 md:p-20 gap-4">
+        <div
+            class="fixed w-full z-40 md:w-44 min-h-14 bottom-4 left-0 md:bg-none bg-light-background dark:bg-dark-background md:static flex flex-row md:flex-col md:justify-start justify-center items-center gap-6 md:gap-10 md:shadow-none shadow-md px-2 rounded-full md:rounded-none">
+            <app-logo />
+            <app-nav />
+            <app-toggle-button />
+        </div>
+        <div class="w-full md:w-[52rem]">
+            <router-outlet />
+        </div>
+    </div>
 </div>

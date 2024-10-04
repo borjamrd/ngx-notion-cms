@@ -3,9 +3,9 @@
 Render your Notion content through your Angular application as a CMS.
 Possible uses:
 
--   Write your blog
--   Showcase your projects
--   Write documentation
+-   💡 Write your blog
+-   🚀 Showcase your projects
+-   📄 Write documentation
 
 Huge thanks to [react-notion](https://github.com/splitbee/react-notion), this library simulates much of what they have previously created with React. ❤️
 

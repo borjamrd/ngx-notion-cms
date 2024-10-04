@@ -11,11 +11,6 @@
         "noFallthroughCasesInSwitch": true,
         "skipLibCheck": true,
         "isolatedModules": true,
-        "paths": {
-            "ngx-notion-cms": [
-                "./dist/ngx-notion-cms"
-            ]
-        },
         "esModuleInterop": true,
         "sourceMap": true,
         "declaration": false,

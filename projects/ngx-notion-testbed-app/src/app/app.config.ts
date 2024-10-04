@@ -4,6 +4,7 @@ import { provideHighlightOptions } from 'ngx-highlightjs';
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
+import { globalSettingsProvider } from 'ngx-notion-cms';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -16,5 +17,12 @@ export const appConfig: ApplicationConfig = {
             fullLibraryLoader: () => import('highlight.js'),
             lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
         }),
+        globalSettingsProvider({
+            cacheOptions: {
+                stateTime: 1000
+            },
+            database: { showImage: true }
+
+        })
     ],
 };

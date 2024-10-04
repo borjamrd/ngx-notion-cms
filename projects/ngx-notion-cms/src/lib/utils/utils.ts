@@ -34,9 +34,8 @@ export const getBlockImageURL = (url: string, block: NotionBlock) => {
         url = `https://www.notion.so${url}`;
     }
 
-    url = `https://www.notion.so${
-        url.startsWith('/image') ? url : `/image/${encodeURIComponent(url)}`
-    }`;
+    url = `https://www.notion.so${url.startsWith('/image') ? url : `/image/${encodeURIComponent(url)}`
+        }`;
 
     const notionImageUrlV2 = new URL(url);
     let table = block.parent_table === 'space' ? 'block' : block.parent_table;
@@ -51,3 +50,19 @@ export const getBlockImageURL = (url: string, block: NotionBlock) => {
 
     return url;
 };
+
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mergeDeep = (target: any, source: any): any => {
+    if (typeof target !== 'object' || typeof source !== 'object') {
+        return source !== undefined ? source : target;
+    }
+
+    for (const key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = mergeDeep(target[key], source[key]);
+        }
+    }
+
+    return target;
+}

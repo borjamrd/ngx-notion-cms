@@ -42,9 +42,12 @@ export class NgxNotionDatabaseComponent implements OnInit {
         this.tableItemsQuery = this.ngxNotionService.getDatabaseItemsById(
             this.dataBaseId()
         );
+
+
     }
 
     goToPage(id: NotionDatabaseItem['id']) {
         this.itemSelected.emit(id);
     }
+
 }

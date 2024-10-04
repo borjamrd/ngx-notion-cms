@@ -1,4 +1,4 @@
-![Alt text](public/ngx-notion-cms-rounded.png)
+![Alt text](../../public/ngx-notion-cms-rounded.png)
 
 Render your Notion content through your Angular application as a CMS.
 Possible uses:
@@ -36,6 +36,27 @@ For both, only the styles change, the components are the same:
 
 ```bash
 npm install ngx-notion-cms
+
+# Optional if need to display highlighted code blocks
+npm install ngx-highlightjs
+```
+
+```typescript
+import { globalSettingsProvider } from 'ngx-notion-cms';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHighlightOptions } from 'ngx-highlightjs'; //optional
+
+export const appConfig: ApplicationConfig = {
+    providers: [
+        provideHttpClient(),
+        globalSettingsProvider({}), //you can pass global settings here,
+        provideHighlightOptions({
+            // Optional
+            fullLibraryLoader: () => import('highlight.js'),
+            lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
+        }),
+    ],
+};
 ```
 
 ## Example
@@ -46,19 +67,26 @@ npm install ngx-notion-cms
 
 ### Global Options
 
-Por defecto vienen configuradas unas opciones globales que son fácilmente modificables. Por ejemplo, en caso de que queramos que no se muestren las imágenes de los items en las bases de datos:
+By default, global options are configured that are easily modified. For example, in case we want the images of the articles in the databases to not be displayed:
 
 ```typescript
 import { globalSettingsProvider } from 'ngx-notion-cms';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        // list of providers
+        // ....
         globalSettingsProvider({
             cacheOptions: {
-                stateTime: 1000,
+                stateTime: 100000,
+                storeInCache: true,
             },
-            database: { showImage: true },
+            database: {
+                showImage: false,
+            },
+            page: {
+                showTableOfContents: true,
+            },
+            prefetchOnHover: false,
         }),
     ],
 };

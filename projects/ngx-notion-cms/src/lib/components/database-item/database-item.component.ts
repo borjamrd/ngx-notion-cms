@@ -3,14 +3,14 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    DestroyRef,
     inject,
     input,
     OnInit,
     output,
-    signal,
+    signal
 } from '@angular/core';
 import { PostTagDirective } from '../../directives/post-tag.directive';
+import { NgxSettingService } from '../../services/settings.service';
 import { NotionBlock, NotionDatabaseItem } from '../../types';
 
 @Component({
@@ -22,27 +22,20 @@ import { NotionBlock, NotionDatabaseItem } from '../../types';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatabaseItemComponent implements OnInit {
-    public prefetchPageElements = output<string>();
     private cdr = inject(ChangeDetectorRef);
-    public databaseItem = input.required<NotionDatabaseItem>();
-    public clicked = output<NotionDatabaseItem['id']>();
-    public destroyRef = inject(DestroyRef);
+    private settingsService = inject(NgxSettingService)
 
-    //TODO!  tipar
-    public itemBlocks = [];
     public blockPage = signal<NotionBlock | null>(null);
+    public clicked = output<NotionDatabaseItem['id']>();
+    public databaseItem = input.required<NotionDatabaseItem>();
+    public imgSrc = signal<string>('');
     public isLoaded = signal(false);
+    public prefetchPageElements = output<string>();
+    public showImage = signal<boolean>(false)
 
-    imgSrc = signal<string>('');
 
     ngOnInit() {
-        console.log('-')
-        // this.notionService.getPageElements(this.databaseItem().id).then(items => items.forEach(item => {
-        //   if (item.format?.page_cover) {
-        //     this.blockPage.set(item)
-        //     this.imgSrc.set(getBlockImageURL(this.blockPage()!.format!.page_cover!, this.blockPage()!));
-        //   }
-        // }))
+        this.showImage.set(this.settingsService.getGlobalSettings().database.showImage ?? true)
     }
 
     setLoad() {

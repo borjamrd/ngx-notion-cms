@@ -5,22 +5,23 @@ import { GlobalSettingsConfig } from "../utils/settings.config";
 
 export const GLOBAL_SETTINGS_TOKEN = new InjectionToken<GlobalSettings>('GlobalSettingsToken');
 
+export const defaultGlobalSettings: GlobalSettings = {
+    cacheOptions: {
+        storeInCache: true,
+        stateTime: 1000 * 60 * 60
+    },
+    database: {
+        showImage: true,
+    },
+    page: {
+        showTableOfContents: true
+    },
+    prefetchOnHover: false
 
+
+}
 export function globalSettingsProvider(settings: Partial<GlobalSettings>): Provider {
-    const defaultGlobalSettings: GlobalSettings = {
-        cacheOptions: {
-            storeInCache: true,
-            stateTime: 10000
-        },
-        database: {
-            showImage: true,
-        },
-        page: {
-            showTableOfContents: true
-        }
 
-
-    }
 
     return {
         provide: GLOBAL_SETTINGS_TOKEN,

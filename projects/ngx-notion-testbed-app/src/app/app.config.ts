@@ -17,12 +17,6 @@ export const appConfig: ApplicationConfig = {
             fullLibraryLoader: () => import('highlight.js'),
             lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
         }),
-        globalSettingsProvider({
-            cacheOptions: {
-                stateTime: 1000
-            },
-            database: { showImage: true }
-
-        })
+        globalSettingsProvider({})
     ],
 };

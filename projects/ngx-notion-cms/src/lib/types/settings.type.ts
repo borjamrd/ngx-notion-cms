@@ -18,6 +18,7 @@ export interface GlobalSettings {
     cacheOptions: Partial<CacheOptions>;
     database: Partial<DatabaseSettings>;
     page: Partial<PageSettings>;
+    prefetchOnHover: boolean;
 }
 
 

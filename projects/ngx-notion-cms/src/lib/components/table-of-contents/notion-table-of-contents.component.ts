@@ -15,6 +15,9 @@ import { NotionBlock, TableOfContentsEntry } from '../../types/block.type';
     templateUrl: './notion-table-of-contents.component.html',
     styleUrl: './notion-table-of-contents.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        class: 'sticky top-10'
+    }
 })
 export class NotionTableOfContentsComponent implements OnChanges {
     public scrollToBlock = output<string>();

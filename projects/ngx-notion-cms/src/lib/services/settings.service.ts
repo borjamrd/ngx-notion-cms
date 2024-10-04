@@ -13,7 +13,6 @@ export class NgxSettingService {
 
     constructor(@Inject(GLOBAL_SETTINGS_TOKEN) private config: GlobalSettingsConfig) {
         this._globalSettings = this.config.globalSettings;
-        console.log(this.config.globalSettings)
     }
 
     /**
@@ -25,6 +24,7 @@ export class NgxSettingService {
     }
 
     getGlobalSettings(): GlobalSettings {
+        console.log(this._globalSettings)
         return this._globalSettings;
     }
 }

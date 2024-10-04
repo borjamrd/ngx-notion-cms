@@ -12,6 +12,9 @@ import {
 import { PostTagDirective } from '../../directives/post-tag.directive';
 import { NgxSettingService } from '../../services/settings.service';
 import { NotionBlock, NotionDatabaseItem } from '../../types';
+import { NgxNotionService } from '../../services/notion.service';
+import { map } from 'rxjs';
+import { getBlockImageURL } from '../../utils/utils';
 
 @Component({
     selector: 'ngx-notion-database-item',
@@ -30,11 +33,26 @@ export class DatabaseItemComponent implements OnInit {
     public databaseItem = input.required<NotionDatabaseItem>();
     public imgSrc = signal<string>('');
     public isLoaded = signal(false);
-    public prefetchPageElements = output<string>();
     public showImage = signal<boolean>(false)
 
-
+    private notionService = inject(NgxNotionService)
     ngOnInit() {
+        this.notionService.getPageBlocks(this.databaseItem().id).pipe(
+            map((response) => {
+                console.log(response)
+                if (response.data) {
+                    const blocks = response.data;
+                    blocks.forEach(block => {
+
+                        if (block.type === 'page') {
+                            this.imgSrc.set(getBlockImageURL(block.format!.page_cover!, block!))
+
+                        }
+                    })
+                }
+
+            })
+        ).subscribe()
         this.showImage.set(this.settingsService.getGlobalSettings().database.showImage ?? true)
     }
 

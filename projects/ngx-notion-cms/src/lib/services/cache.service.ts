@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { GlobalSettingsConfig } from '../utils/settings.config';
+import { GLOBAL_SETTINGS_TOKEN } from '../providers';
 
 @Injectable({
     providedIn: 'root',
@@ -8,11 +10,15 @@ export class CacheService<T> {
     private cache = new Map<string, { data: T; expiry: number }>();
     public cache$ = new BehaviorSubject<T | null>(null);
 
-    //Todo export to settings.service
-    private readonly CACHE_DURATION = 1000 * 60 * 60;
+    private readonly STORE_IN_CACHE = true
+
+    constructor(@Inject(GLOBAL_SETTINGS_TOKEN) private config: GlobalSettingsConfig) {
+        this.STORE_IN_CACHE = this.config.globalSettings.cacheOptions.storeInCache || this.STORE_IN_CACHE;
+    }
 
     set(key: string, data: T): void {
-        const expiry = Date.now() + this.CACHE_DURATION;
+        const cacheDuration = this.config.globalSettings.cacheOptions.stateTime
+        const expiry = Date.now() + cacheDuration!;
         this.cache.set(key, { data, expiry });
         this.cache$.next(data);
     }

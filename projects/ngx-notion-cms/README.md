@@ -17,7 +17,7 @@ _This package doesn't handle the communication with the API. Check out [notion-a
 
 1.  [Type of content](#type-of-content)
 2.  [Get started](#get-started)
-3.  [Aditional Options](#aditional-options)
+3.  [Global Options](#aditional-options)
 4.  [Supported blocks](#supported-blocks)
 
 ## Type of content
@@ -44,40 +44,50 @@ npm install ngx-notion-cms
 
 ### Add page component
 
-### Aditional options
+### Global Options
 
-#### Custom Styles
+Por defecto vienen configuradas unas opciones globales que son fácilmente modificables. Por ejemplo, en caso de que queramos que no se muestren las imágenes de los items en las bases de datos:
 
-A implementar
+```typescript
+import { globalSettingsProvider } from 'ngx-notion-cms';
 
-#### Manejo de caché
-
-A implementar
+export const appConfig: ApplicationConfig = {
+    providers: [
+        // list of providers
+        globalSettingsProvider({
+            cacheOptions: {
+                stateTime: 1000,
+            },
+            database: { showImage: true },
+        }),
+    ],
+};
+```
 
 ## Supported Blocks
 
 Most common block types are supported. We happily accept pull requests to add support for the missing blocks.
 
-| Block Type        | Supported  | Notes                  |
-| ----------------- | ---------- | ---------------------- |
+| Block Type        | Supported  | Notes                |
+| ----------------- | ---------- | -------------------- |
 | Table Of Contents | ✅ Yes     |
-| Text              | ✅ Yes     |                        |
-| Heading           | ✅ Yes     |                        |
-| Image             | ✅ Yes     |                        |
-| Image Caption     | ❌ Missing |                        |
-| Bulleted List     | ✅ Yes     |                        |
-| Numbered List     | ✅ Yes     |                        |
-| Quote             | ✅ Yes     |                        |
-| Callout           | ✅ Yes     |                        |
-| Column            | ✅ Yes     |                        |
-| iframe            | ✅ Yes     |                        |
-| Video             | ✅ Yes     | Only embedded videos   |
-| Divider           | ✅ Yes     |                        |
-| Link              | ✅ Yes     |                        |
-| Code              | ✅ Yes     |                        |
-| Web Bookmark      | ✅ Yes     |                        |
-| Toggle List       | ❌ Missing |                        |
-| Page Links        | ✅ Yes     |                        |
-| Header            | ❌ Missing | Enable with `fullPage` |
+| Text              | ✅ Yes     |                      |
+| Heading           | ✅ Yes     |                      |
+| Image             | ✅ Yes     |                      |
+| Image Caption     | ❌ Missing |                      |
+| Bulleted List     | ✅ Yes     |                      |
+| Numbered List     | ✅ Yes     |                      |
+| Quote             | ✅ Yes     |                      |
+| Callout           | ✅ Yes     |                      |
+| Column            | ✅ Yes     |                      |
+| iframe            | ✅ Yes     |                      |
+| Video             | ✅ Yes     | Only embedded videos |
+| Divider           | ✅ Yes     |                      |
+| Link              | ✅ Yes     |                      |
+| Code              | ✅ Yes     |                      |
+| Web Bookmark      | ✅ Yes     |                      |
+| Toggle List       | ❌ Missing |                      |
+| Page Links        | ✅ Yes     |                      |
+| Header            | ❌ Missing |                      |
 | Databases         | ❌ Missing |
 | Checkbox          | ❌ Missing |

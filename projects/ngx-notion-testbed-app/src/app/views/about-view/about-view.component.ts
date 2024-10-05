@@ -18,8 +18,9 @@ export class AboutViewComponent {
 
     ngOnInit(): void {
         this.title.setTitle('About ngx-notion-cms');
+        this.meta.updateTag({ name: 'og:title', content: 'ngx-notion-cms' });
         this.meta.updateTag({ name: 'description', content: 'unofficial Notion renderer for Angular' });
-        this.meta.updateTag({ name: 'og:title', content: 'contact page' });
         this.meta.updateTag({ name: 'keywords', content: 'Angular, Notion, CMS, Blog' });
+        this.meta.updateTag({ name: 'og:image', content: '/public/notion-cms-og.png' })
     }
 }

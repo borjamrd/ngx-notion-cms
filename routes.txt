@@ -1,3 +1,8 @@
-/
-/posts 
+/about
 /projects
+/posts
+/posts/3316869a-d425-492c-9024-bc3ceb62e3bb
+/posts/cdc219b1-9009-43d3-ac56-694c578bb30d
+/posts/6138061c-c1ac-4a08-bccd-4ab17485cd8d
+/posts/fb13a4b4-8543-4b0d-8b4a-ec273dad59e5
+/posts/10b11ba7-512b-80da-9c45-c565da5adfd1

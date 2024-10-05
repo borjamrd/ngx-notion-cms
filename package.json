@@ -13,6 +13,8 @@
     "ngx-notion-cms:build": "ng build ngx-notion-cms",
     "ngx-notion-cms:publish": "npm run ngx-notion-cms:lint && npm run ngx-notion-cms:build && npm publish dist/ngx-notion-cms/",
     "serve:ssr:ngx-notion-testbed-app": "node dist/ngx-notion-testbed-app/server/server.mjs",
+    "build:prerender:ngx-notion-testbed-app": "npm run prerender && ng build ngx-notion-testbed-app",
+    "prerender": "node scripts/prerender-routes.js",
     "prepare": "husky"
   },
   "private": true,

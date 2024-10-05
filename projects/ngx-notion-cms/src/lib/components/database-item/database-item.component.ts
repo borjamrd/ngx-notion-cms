@@ -3,17 +3,18 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
+    DestroyRef,
     inject,
     input,
     OnInit,
     output,
     signal
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PostTagDirective } from '../../directives/post-tag.directive';
+import { NgxNotionService } from '../../services/notion.service';
 import { NgxSettingService } from '../../services/settings.service';
 import { NotionBlock, NotionDatabaseItem } from '../../types';
-import { NgxNotionService } from '../../services/notion.service';
-import { map } from 'rxjs';
 import { getBlockImageURL } from '../../utils/utils';
 
 @Component({
@@ -26,6 +27,7 @@ import { getBlockImageURL } from '../../utils/utils';
 })
 export class DatabaseItemComponent implements OnInit {
     private cdr = inject(ChangeDetectorRef);
+    private destroyRef = inject(DestroyRef);
     private settingsService = inject(NgxSettingService)
 
     public blockPage = signal<NotionBlock | null>(null);
@@ -37,25 +39,21 @@ export class DatabaseItemComponent implements OnInit {
 
     private notionService = inject(NgxNotionService)
     ngOnInit() {
-
-        //!change and unsuscribe
-        this.notionService.getPageBlocks(this.databaseItem().id).pipe(
-            map((response) => {
-                console.log(response)
+        this.showImage.set(this.settingsService.getGlobalSettings().database.showImage ?? true)
+        this.notionService.getPageBlocks(this.databaseItem().id)
+            .pipe(
+                takeUntilDestroyed(this.destroyRef),
+            ).subscribe(response => {
                 if (response.data) {
                     const blocks = response.data;
                     blocks.forEach(block => {
-
                         if (block.type === 'page') {
                             this.imgSrc.set(getBlockImageURL(block.format!.page_cover!, block!))
 
                         }
                     })
                 }
-
             })
-        ).subscribe()
-        this.showImage.set(this.settingsService.getGlobalSettings().database.showImage ?? true)
     }
 
     setLoad() {

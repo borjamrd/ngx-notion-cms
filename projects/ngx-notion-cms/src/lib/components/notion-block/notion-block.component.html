@@ -1,6 +1,6 @@
 @let notionBlock = notionBlockSignal();
 
-@defer {
+@defer (on viewport) {
     @switch (notionBlock!.type) {
         @case ('bulleted_list') {
             <li>

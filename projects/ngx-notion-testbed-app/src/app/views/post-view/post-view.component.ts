@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 @Component({
     selector: 'app-post-view',
     standalone: true,
-    imports: [CommonModule, NotionPageComponent, AsyncPipe],
+    imports: [NotionPageComponent],
     templateUrl: './post-view.component.html',
     styleUrl: './post-view.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,

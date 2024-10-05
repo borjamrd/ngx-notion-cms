@@ -24,7 +24,6 @@ export class NgxSettingService {
     }
 
     getGlobalSettings(): GlobalSettings {
-        console.log(this._globalSettings)
         return this._globalSettings;
     }
 }

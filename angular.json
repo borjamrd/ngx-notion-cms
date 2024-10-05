@@ -28,7 +28,10 @@
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
                         "tsConfig": "projects/ngx-notion-cms/tsconfig.spec.json",
-                        "polyfills": ["zone.js", "zone.js/testing"]
+                        "polyfills": [
+                            "zone.js",
+                            "zone.js/testing"
+                        ]
                     }
                 },
                 "lint": {
@@ -56,7 +59,9 @@
                         "outputPath": "dist/ngx-notion-testbed-app",
                         "index": "projects/ngx-notion-testbed-app/src/index.html",
                         "browser": "projects/ngx-notion-testbed-app/src/main.ts",
-                        "polyfills": ["zone.js"],
+                        "polyfills": [
+                            "zone.js"
+                        ],
                         "tsConfig": "projects/ngx-notion-testbed-app/tsconfig.app.json",
                         "assets": [
                             {
@@ -69,7 +74,9 @@
                         ],
                         "scripts": [],
                         "server": "projects/ngx-notion-testbed-app/src/main.server.ts",
-                        "prerender": true,
+                        "prerender": {
+                            "routesFile": "routes.txt"
+                        },
                         "ssr": {
                             "entry": "projects/ngx-notion-testbed-app/server.ts"
                         }
@@ -116,7 +123,10 @@
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "polyfills": [
+                            "zone.js",
+                            "zone.js/testing"
+                        ],
                         "tsConfig": "projects/ngx-notion-testbed-app/tsconfig.spec.json",
                         "assets": [
                             {
@@ -145,6 +155,8 @@
     },
     "cli": {
         "analytics": "5e7ff7bb-b7db-448e-8b5b-234940022fde",
-        "schematicCollections": ["@angular-eslint/schematics"]
+        "schematicCollections": [
+            "@angular-eslint/schematics"
+        ]
     }
 }

@@ -26,7 +26,6 @@ export class NgxNotionService {
                         Object.values(response.data).forEach((key: any) => {
                             blocks.push(key.value);
                         });
-                        console.log(blocks)
                         return {
                             data: blocks,
                             error: null,

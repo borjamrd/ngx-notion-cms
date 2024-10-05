@@ -1,9 +1,10 @@
 @let item = databaseItem();
+
 @if (item) {
     <div
         class="border border-violet-100 p-4 rounded-md h-full hover:bg-violet-100/50 cursor-pointer"
         (click)="clicked.emit(item.id)">
-        @if (showImage()) {
+        @if (showImage() && imgSrc()) {
             <div
                 [ngStyle]="{
                     'background-image': 'url(' + imgSrc() + ')',
@@ -14,7 +15,7 @@
                 }"
                 class="placeholder w-full h-[320px] rounded-md mb-3">
                 <img
-                    class="w-full h-[320px] object-cover rounded-md"
+                    class="w-full h-[320px] object-cover rounded-mdy"
                     alt="image"
                     [ngClass]="{
                         image: true,

@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 
-// All projects by default
-
 module.exports = {
     darkMode: 'class',
-    content: ['./projects/**/*.{html,ts}'],
+    content: [
+        './projects/ngx-notion-testbed-app/src/**/*.{html,ts}',
+        './projects/ngx-notion-cms/src/**/*.{html,ts}'
+    ],
     theme: {
         extend: {
             colors: {
-                // Tema claro
                 light: {
                     primary: '#1d4ed8', // Blue 700
                     secondary: 'rgb(134 25 143)', // Purple 600
@@ -17,7 +17,6 @@ module.exports = {
                     accent: '#f59e0b', // Amber 500
                     muted: '#f3f4f6', // Gray 200
                 },
-                // Tema oscuro
                 dark: {
                     primary: '#3b82f6', // Blue 500
                     secondary: 'rgb(134 25 143)', // Purple 700

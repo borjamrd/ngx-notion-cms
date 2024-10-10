@@ -1,5 +1,3 @@
-![Alt text](./public/ngx-notion-cms-rounded.png)
-
 Render your Notion content through your Angular application as a CMS.
 Possible uses:
 
@@ -41,6 +39,8 @@ npm install ngx-notion-cms
 npm install ngx-highlightjs
 ```
 
+Import the providers in your `app.config.ts`
+
 ```typescript
 import { globalSettingsProvider } from 'ngx-notion-cms';
 import { provideHttpClient } from '@angular/common/http';
@@ -57,6 +57,12 @@ export const appConfig: ApplicationConfig = {
         }),
     ],
 };
+```
+
+If you want to use the default Tailwind classes you must import this in your `styles.css`
+
+```css
+@import 'ngx-notion-cms/styles';
 ```
 
 ## Example

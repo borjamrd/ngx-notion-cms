@@ -1,6 +1,6 @@
 {
     "name": "ngx-notion-cms",
-    "version": "0.0.0",
+    "version": "0.0.3",
     "peerDependencies": {
         "@angular/common": "^18.2.0",
         "@angular/core": "^18.2.0",
@@ -9,5 +9,8 @@
     "dependencies": {
         "tslib": "^2.3.0"
     },
-    "sideEffects": false
+    "sideEffects": false,
+    "exports": {
+        "./styles": "./styles.css"
+    }
 }

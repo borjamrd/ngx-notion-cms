@@ -1,4 +1,4 @@
-![Alt text](../../public/ngx-notion-cms-rounded.png)
+![Alt text](./public/ngx-notion-cms-rounded.png)
 
 Render your Notion content through your Angular application as a CMS.
 Possible uses:

@@ -44,25 +44,42 @@ Import the providers in your `app.config.ts`
 ```typescript
 import { globalSettingsProvider } from 'ngx-notion-cms';
 import { provideHttpClient } from '@angular/common/http';
-import { provideHighlightOptions } from 'ngx-highlightjs'; //optional
+
+export const appConfig: ApplicationConfig = {
+    providers: [
+        provideHttpClient(),
+        globalSettingsProvider({}), //you can pass global settings here,
+    ],
+};
+```
+
+### Tailwind
+
+If you want to use the default Tailwind classes you must import this in your `styles.css`
+
+```css
+@import 'ngx-notion-cms/styles';
+```
+
+### Code Highlight
+
+If you are going to use code blocks ``ngx-notion-cms` uses `ngx-hightlightsjs` under the hood. Here is the configuration:
+
+```typescript
+import { globalSettingsProvider } from 'ngx-notion-cms';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHighlightOptions } from 'ngx-highlightjs';
 
 export const appConfig: ApplicationConfig = {
     providers: [
         provideHttpClient(),
         globalSettingsProvider({}), //you can pass global settings here,
         provideHighlightOptions({
-            // Optional
             fullLibraryLoader: () => import('highlight.js'),
             lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
         }),
     ],
 };
-```
-
-If you want to use the default Tailwind classes you must import this in your `styles.css`
-
-```css
-@import 'ngx-notion-cms/styles';
 ```
 
 ## Example

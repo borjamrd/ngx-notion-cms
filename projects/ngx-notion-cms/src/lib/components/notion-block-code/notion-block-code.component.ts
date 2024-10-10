@@ -5,6 +5,7 @@ import {
     provideHighlightOptions,
 } from 'ngx-highlightjs';
 import { NotionBlock } from '../../types/block.type';
+import { CopyToClipboardComponent } from '../copy-to-clipboard/copy-to-clipboard.component';
 
 @Component({
     selector: 'ngx-notion-block-code',
@@ -17,7 +18,8 @@ import { NotionBlock } from '../../types/block.type';
             lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
         }),
     ],
-    imports: [HighlightAuto, Highlight],
+    imports: [HighlightAuto, Highlight, CopyToClipboardComponent],
+
 })
 export class NotionBlockCodeComponent implements OnInit {
     codeForHighlight = '';
@@ -31,4 +33,5 @@ export class NotionBlockCodeComponent implements OnInit {
             this.codeForHighlight = this.notionBlock.properties.title[0][0];
         }
     }
+
 }

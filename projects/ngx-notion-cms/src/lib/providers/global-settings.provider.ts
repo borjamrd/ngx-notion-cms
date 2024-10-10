@@ -12,9 +12,11 @@ export const defaultGlobalSettings: GlobalSettings = {
     },
     database: {
         showImage: true,
+        showStatus: true
     },
     page: {
-        showTableOfContents: true
+        showTableOfContents: true,
+        showStatus: true
     }
 
 }

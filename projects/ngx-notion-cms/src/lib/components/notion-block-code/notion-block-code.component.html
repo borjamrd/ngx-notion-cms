@@ -1,10 +1,10 @@
 <pre
     class="relative max-w-80 sm:max-w-full whitespace-pre-wrap flex flex-col sm:min-w-80 overflow-auto">
-    <div class="h-fit absolute top-2 right-2 flex gap-2 justify-end">
-            <span  >{{languange}}</span>
-            <!-- <bm-copy-to-clipboard [displayText]="'Copy'" [value]="codeForHighlight" /> -->
+    <div class="h-fit absolute top-2 right-2 flex gap-2 justify-end w-full items-center">
+            <span class="text-sm font-mono text-neutral-400">{{languange}}</span>
+            <ngx-copy-to-clipboard [value]="codeForHighlight" class="text-white" />
     </div>
-    <code class="" [highlightAuto]="codeForHighlight"
+    <code [highlightAuto]="codeForHighlight"
           language="ts"
           lineNumbers>
         </code>

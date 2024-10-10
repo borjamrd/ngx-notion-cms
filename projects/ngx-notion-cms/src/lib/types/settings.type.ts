@@ -23,6 +23,7 @@ export interface GlobalSettings {
  */
 export interface DatabaseSettings {
     showImage: boolean;
+    showStatus: boolean;
 }
 
 /**
@@ -30,4 +31,5 @@ export interface DatabaseSettings {
  */
 export interface PageSettings {
     showTableOfContents: boolean;
+    showStatus: boolean;
 }

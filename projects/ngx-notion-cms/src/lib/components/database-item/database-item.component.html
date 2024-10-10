@@ -2,7 +2,7 @@
 
 @if (item) {
     <div
-        class="border border-violet-100 p-4 rounded-md h-full hover:bg-violet-100/50 cursor-pointer"
+        class="border border-violet-100 p-4 rounded-md h-full hover:bg-violet-100/20 cursor-pointer relative"
         (click)="clicked.emit(item.id)">
         @if (showImage() && imgSrc()) {
             <div
@@ -15,7 +15,7 @@
                 }"
                 class="placeholder w-full h-[320px] rounded-md mb-3">
                 <img
-                    class="w-full h-[320px] object-cover rounded-mdy"
+                    class="w-full h-[320px] object-cover rounded-md"
                     alt="image"
                     [ngClass]="{
                         image: true,
@@ -28,14 +28,20 @@
                     [height]="320" />
             </div>
         }
+        @if (showStatus()) {
+            <ngx-badge-status [status]="databaseItem().status" />
+        }
 
-        <h3 class="font-semibold text-xl lg:text-3xl mb-3">
+        <h3 class="font-semibold text-xl lg:text-3xl mb-3 w-10/12">
             {{ item.name }}
         </h3>
         <p class="mb-2">{{ item.description }}</p>
         <div class="flex flex-wrap gap-3">
             @for (tag of item.tags; track $index) {
-                <span ngxPostTag>{{ tag }}</span>
+                <span
+                    class="text-sm font-medium text-fuchsia-800 dark:text-fuchsia-200"
+                    >{{ tag }}</span
+                >
             }
         </div>
     </div>

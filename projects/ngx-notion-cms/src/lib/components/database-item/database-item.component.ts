@@ -11,16 +11,16 @@ import {
     signal
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { PostTagDirective } from '../../directives/post-tag.directive';
 import { NgxNotionService } from '../../services/notion.service';
 import { NgxSettingService } from '../../services/settings.service';
 import { NotionBlock, NotionDatabaseItem } from '../../types';
 import { getBlockImageURL } from '../../utils/utils';
+import { BadgeStatusComponent } from '../badge-status/badge-status.component';
 
 @Component({
     selector: 'ngx-notion-database-item',
     standalone: true,
-    imports: [CommonModule, PostTagDirective],
+    imports: [CommonModule, BadgeStatusComponent],
     templateUrl: './database-item.component.html',
     styleUrl: './database-item.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,11 +35,11 @@ export class DatabaseItemComponent implements OnInit {
     public databaseItem = input.required<NotionDatabaseItem>();
     public imgSrc = signal<string>('');
     public isLoaded = signal(false);
-    public showImage = signal<boolean>(false)
 
+    public showImage = signal<boolean>(this.settingsService.getGlobalSettings().database.showImage ?? true);
+    public showStatus = signal<boolean>(this.settingsService.getGlobalSettings().database.showStatus ?? true);
     private notionService = inject(NgxNotionService)
     ngOnInit() {
-        this.showImage.set(this.settingsService.getGlobalSettings().database.showImage ?? true)
         this.notionService.getPageBlocks(this.databaseItem().id)
             .pipe(
                 takeUntilDestroyed(this.destroyRef),

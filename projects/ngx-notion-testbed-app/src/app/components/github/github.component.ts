@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   <a
   target="_blank"
   href="https://github.com/borjamrd/ngx-notion-cms"
-  class="flex items-center justify-center p-2 bg-light-secondary dark:bg-dark-secondary dark:bg-opacity-40 bg-opacity-10 hover:bg-opacity-25 text-black dark:text-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all"
+  class="flex md:h-12 md:w-12 aspect-square h-8 w-8 items-center justify-center p-2 bg-light-secondary dark:bg-dark-secondary dark:bg-opacity-40 bg-opacity-10 hover:bg-opacity-25 text-black dark:text-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all"
   >
 
   

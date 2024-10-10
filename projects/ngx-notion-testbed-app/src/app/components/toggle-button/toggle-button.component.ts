@@ -9,6 +9,9 @@ import { ThemeService } from '../../services/theme.service';
     templateUrl: './toggle-button.component.html',
     styleUrl: './toggle-button.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        class: 'flex'
+    }
 })
 export class ToggleButtonComponent {
     private themeService: ThemeService = inject(ThemeService);

@@ -1,9 +1,21 @@
 <div
     class="flex gap-3 justify-center md:relative md:flex-col items-center w-full">
-    <a [routerLink]="['/']" routerLinkActive="router-link-active">About</a>
-
-    <a [routerLink]="['/projects']" routerLinkActive="router-link-active"
+    <a
+        [routerLink]="['/']"
+        routerLinkActive="router-link-active"
+        class="link link-underline link-underline-black"
+        >About</a
+    >
+    <a
+        [routerLink]="['/projects']"
+        routerLinkActive="router-link-active"
+        class="link link-underline link-underline-black"
         >Projects</a
     >
-    <a [routerLink]="['/posts']" routerLinkActive="router-link-active">Posts</a>
+    <a
+        [routerLink]="['/posts']"
+        routerLinkActive="router-link-active"
+        class="link link-underline link-underline-black"
+        >Posts</a
+    >
 </div>

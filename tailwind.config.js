@@ -1,30 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 
-// All projects by default
-
 module.exports = {
     darkMode: 'class',
     content: ['./projects/**/*.{html,ts}'],
     theme: {
         extend: {
             colors: {
-                // Tema claro
                 light: {
-                    primary: '#1d4ed8', // Blue 700
-                    secondary: 'rgb(134 25 143)', // Purple 600
-                    background: '#ffffff', // White
-                    foreground: '#000000', // Black
-                    accent: '#f59e0b', // Amber 500
-                    muted: '#f3f4f6', // Gray 200
+                    primary: '#1d4ed8',
+                    secondary: '#86198f',
+                    secondaryLight: '#86198f',
+                    background: '#ffffff',
+                    foreground: '#000000',
+                    accent: '#f59e0b',
+                    muted: '#f3f4f6',
                 },
-                // Tema oscuro
                 dark: {
-                    primary: '#3b82f6', // Blue 500
-                    secondary: 'rgb(134 25 143)', // Purple 700
-                    background: '#0F0F11', // Gray 800
-                    foreground: '#ffffff', // White
-                    accent: '#d97706', // Amber 600
-                    muted: '#374151', // Gray 700
+                    primary: '#3b82f6',
+                    secondary: 'rgb(134 25 143)',
+                    secondaryLight: '#f0abfc',
+                    background: '#0F0F11',
+                    foreground: '#ffffff',
+                    accent: '#d97706',
+                    muted: '#374151',
                 },
             },
         },

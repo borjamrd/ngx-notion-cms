@@ -1,18 +1,16 @@
-
 /**
- * Configuración de la caché.
- * @property {boolean} showCache - Indica si la caché debe mostrarse o no.
- * @property {boolean} staleTime - Tiempo en que la caché se considera obsoleta. Si `true`, la caché se invalidará y se actualizará automáticamente después de un período definido.
+ * Cache configuration.
+ * @property {boolean} showCache - Indicates whether the cache should be shown or not.
+ * @property {boolean} staleTime - Time at which the cache is considered stale. If `true`, the cache will be invalidated and updated automatically after a defined period.
  */
 interface CacheOptions {
     storeInCache: boolean;
     stateTime?: number;
 }
 
-
 /**
- * Configuración global que afecta a toda la aplicación.
- * @property {CacheOptions} cacheOptions - Opciones relacionadas con el manejo de caché.
+ * Global configuration that affects the entire application.
+ * @property {CacheOptions} cacheOptions - Options related to cache handling.
  */
 export interface GlobalSettings {
     cacheOptions: Partial<CacheOptions>;
@@ -20,18 +18,15 @@ export interface GlobalSettings {
     page: Partial<PageSettings>;
 }
 
-
 /**
- * Configuración específica para la base de datos.
+ * Specific configuration for the database.
  */
 export interface DatabaseSettings {
     showImage: boolean;
 }
 
-
-
 /**
- * Configuración específica para las páginas de la aplicación.
+ * Specific configuration for the application's pages.
  */
 export interface PageSettings {
     showTableOfContents: boolean;

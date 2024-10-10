@@ -47,9 +47,8 @@ export class DatabaseItemComponent implements OnInit {
                 if (response.data) {
                     const blocks = response.data;
                     blocks.forEach(block => {
-                        if (block.type === 'page') {
-                            this.imgSrc.set(getBlockImageURL(block.format!.page_cover!, block!))
-
+                        if (block?.type === 'page' && block.format?.page_cover) {
+                            this.imgSrc.set(getBlockImageURL(block.format.page_cover!, block!))
                         }
                     })
                 }

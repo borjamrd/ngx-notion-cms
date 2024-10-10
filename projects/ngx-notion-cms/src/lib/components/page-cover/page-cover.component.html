@@ -1,20 +1,24 @@
 @let notionBlock = notionBlockSignal();
 
-<div class="flex flex-col gap-3 w-full">
-    @defer {
-        <div class="h-[160px] w-full relative">
-            <img
-                fill
-                class="object-cover rounded-3xl"
-                title="page_cover"
-                priority
-                [ngSrc]="imgSrc()" />
-        </div>
-    } @placeholder {
-        <div class="h-40 w-full bg-slate-100 rounded-3xl"></div>
-    }
+@if (notionBlock) {
+    <div class="flex flex-col gap-3 w-full">
+        @if (imgSrc()) {
+            @defer {
+                <div class="h-[160px] w-full relative">
+                    <img
+                        fill
+                        class="object-cover rounded-3xl"
+                        title="page_cover"
+                        priority
+                        [ngSrc]="imgSrc()" />
+                </div>
+            } @placeholder {
+                <div class="h-40 w-full bg-slate-100 rounded-3xl"></div>
+            }
+        }
 
-    <h1 class="text-3xl font-bold mb-5">
-        {{ (notionBlock.properties?.title)![0][0] }}
-    </h1>
-</div>
+        <h1 class="text-3xl font-bold mb-5">
+            {{ (notionBlock.properties?.title)![0][0] }}
+        </h1>
+    </div>
+}

@@ -42,6 +42,7 @@ export class NotionTableOfContentsComponent implements OnChanges {
         this.blocks()
             .filter(
                 block =>
+                    block?.type &&
                     block.type === 'header' ||
                     block.type === 'sub_header' ||
                     block.type === 'sub_sub_header'

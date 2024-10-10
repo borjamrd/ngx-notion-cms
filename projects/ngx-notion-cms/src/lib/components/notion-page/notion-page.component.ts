@@ -5,8 +5,8 @@ import {
     Component,
     inject,
     input,
-    OnInit,
-    signal,
+    OnChanges,
+    signal
 } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { INgxNotionResponse } from '../../services/http-notion.service';
@@ -30,7 +30,7 @@ import { NotionTableOfContentsComponent } from '../table-of-contents/notion-tabl
     styleUrl: './notion-page.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotionPageComponent implements OnInit {
+export class NotionPageComponent implements OnChanges {
     private ngxNotionService: NgxNotionService = inject(NgxNotionService);
 
     public pageId = input.required<string>();
@@ -39,7 +39,7 @@ export class NotionPageComponent implements OnInit {
     public notionBlocksQuery!: INgxNotionResponse<NotionBlock[]>;
     private cdr = inject(ChangeDetectorRef);
 
-    ngOnInit(): void {
+    ngOnChanges(): void {
         this.notionBlocksQuery = this.ngxNotionService.getPageBlocks(
             this.pageId()
         );

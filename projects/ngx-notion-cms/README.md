@@ -86,7 +86,6 @@ export const appConfig: ApplicationConfig = {
             page: {
                 showTableOfContents: true,
             },
-            prefetchOnHover: false,
         }),
     ],
 };

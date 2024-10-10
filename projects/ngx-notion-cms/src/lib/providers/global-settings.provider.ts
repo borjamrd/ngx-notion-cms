@@ -15,9 +15,7 @@ export const defaultGlobalSettings: GlobalSettings = {
     },
     page: {
         showTableOfContents: true
-    },
-    prefetchOnHover: false
-
+    }
 
 }
 export function globalSettingsProvider(settings: Partial<GlobalSettings>): Provider {

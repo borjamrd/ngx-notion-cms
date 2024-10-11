@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angular/core';
 import { CopyToClipboardDirective } from '../../directives/copy-to-clipboard';
 

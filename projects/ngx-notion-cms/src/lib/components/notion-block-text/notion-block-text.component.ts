@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, Input } from '@angular/core';
-import { NotionBlock } from '../../types';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Nl2brPipe } from '../../pipes/nl2br.pipe';
+import { NotionBlock } from '../../types';
 
 @Component({
     selector: 'ngx-notion-block-text',

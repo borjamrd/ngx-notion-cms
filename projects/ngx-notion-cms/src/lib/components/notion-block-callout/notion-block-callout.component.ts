@@ -1,7 +1,7 @@
-import { CommonModule, JsonPipe } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { NotionBlock } from '../../types';
 import { Nl2brPipe } from '../../pipes/nl2br.pipe';
+import { NotionBlock } from '../../types';
 import { NotionBlockTextComponent } from '../notion-block-text/notion-block-text.component';
 
 @Component({

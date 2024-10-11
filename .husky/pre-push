@@ -1,1 +1,1 @@
-npm run test ngx-notion-cms --no-watch --browsers=ChromeHeadless"
+npm run ngx-notion-cms:test

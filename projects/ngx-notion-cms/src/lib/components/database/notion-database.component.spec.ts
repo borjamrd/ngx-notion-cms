@@ -2,20 +2,20 @@
 
 // import { CommonModule } from '@angular/common';
 // import { LayoutContainerComponent } from '../layout-container/layout-container.component';
-// import { NgxNotionDatabaseComponent } from './ngx-notion-database.component';
+// import { NotionDatabaseComponent } from './ngx-notion-database.component';
 
-// describe('NgxNotionDatabaseComponent', () => {
-//     let component: NgxNotionDatabaseComponent;
-//     let fixture: ComponentFixture<NgxNotionDatabaseComponent>;
+// describe('NotionDatabaseComponent', () => {
+//     let component: NotionDatabaseComponent;
+//     let fixture: ComponentFixture<NotionDatabaseComponent>;
 
 //     beforeEach(async () => {
 
 
 //         await TestBed.configureTestingModule({
-//             imports: [NgxNotionDatabaseComponent, CommonModule, LayoutContainerComponent],
+//             imports: [NotionDatabaseComponent, CommonModule, LayoutContainerComponent],
 //         }).compileComponents();
 
-//         fixture = TestBed.createComponent(NgxNotionDatabaseComponent);
+//         fixture = TestBed.createComponent(NotionDatabaseComponent);
 //         component = fixture.componentInstance;
 //         fixture.detectChanges();
 //     });

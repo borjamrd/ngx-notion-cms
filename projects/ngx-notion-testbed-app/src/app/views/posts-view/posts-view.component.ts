@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { NgxNotionDatabaseComponent, NotionDatabaseItem } from 'ngx-notion-cms';
+import { NotionDatabaseComponent, NotionDatabaseItem } from 'ngx-notion-cms';
 
 @Component({
     selector: 'app-posts-view',
     standalone: true,
-    imports: [NgxNotionDatabaseComponent, RouterModule],
+    imports: [NotionDatabaseComponent, RouterModule],
     templateUrl: './posts-view.component.html',
     styleUrl: './posts-view.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,

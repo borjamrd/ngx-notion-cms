@@ -17,7 +17,7 @@ import { NotionBlockComponent } from '../notion-block/notion-block.component';
 import { NotionTableOfContentsComponent } from '../table-of-contents/notion-table-of-contents.component';
 
 @Component({
-    selector: 'ngx-notion-page',
+    selector: 'notion-page',
     standalone: true,
     imports: [
         CommonModule,

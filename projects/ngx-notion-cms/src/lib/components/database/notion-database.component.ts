@@ -22,14 +22,14 @@ export interface TableOptions {
 }
 
 @Component({
-    selector: 'ngx-notion-database',
+    selector: 'notion-database',
     standalone: true,
     imports: [DatabaseItemComponent, CommonModule, LayoutContainerComponent],
-    templateUrl: './ngx-notion-database.component.html',
+    templateUrl: './notion-database.component.html',
     styles: ``,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NgxNotionDatabaseComponent implements OnInit {
+export class NotionDatabaseComponent implements OnInit {
     public dataBaseId = input.required<string>();
     public tableItems = signal<NotionDatabaseItem[]>([]);
     public tableType = input<TableType>('blog');

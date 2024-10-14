@@ -36,9 +36,6 @@ For both, only the styles change, the components are the same:
 
 ```bash
 npm install ngx-notion-cms
-
-# Optional if need to display highlighted code blocks
-npm install ngx-highlightjs
 ```
 
 Import the providers in your `app.config.ts`
@@ -64,6 +61,11 @@ If you want to use the default Tailwind classes you must import this in your `st
 ### Code Highlight
 
 If you are going to use code blocks ``ngx-notion-cms` uses `ngx-hightlightsjs` under the hood. Here is the configuration:
+
+```bash
+npm install ngx-highlightjs
+```
+
 
 ```typescript
 import { globalSettingsProvider } from 'ngx-notion-cms';

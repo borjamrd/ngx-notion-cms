@@ -22,18 +22,18 @@ export const routes: Routes = [
                 m => m.PostViewComponent
             ),
     },
-    {
-        path: 'projects',
-        loadComponent: () =>
-            import('./views/projects-view/projects-view.component').then(
-                m => m.ProjectsViewComponent
-            ),
-    },
-    {
-        path: 'projects/:project',
-        loadComponent: () =>
-            import('./views/project-view/project-view.component').then(
-                m => m.ProjectViewComponent
-            ),
-    },
+    // {
+    //     path: 'projects',
+    //     loadComponent: () =>
+    //         import('./views/projects-view/projects-view.component').then(
+    //             m => m.ProjectsViewComponent
+    //         ),
+    // },
+    // {
+    //     path: 'projects/:project',
+    //     loadComponent: () =>
+    //         import('./views/project-view/project-view.component').then(
+    //             m => m.ProjectViewComponent
+    //         ),
+    // },
 ];

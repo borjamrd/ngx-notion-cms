@@ -16,6 +16,22 @@ import { LayoutContainerComponent } from '../layout-container/layout-container.c
 import { NotionBlockComponent } from '../notion-block/notion-block.component';
 import { NotionTableOfContentsComponent } from '../table-of-contents/notion-table-of-contents.component';
 
+/**
+ * Component to display a Notion page.
+ * 
+ * @selector notion-page
+ * @standalone true - This component is standalone and can be used without being declared in a module.
+ * 
+ * @description Displays the content of a Notion page by fetching the blocks associated with the given page ID. It supports rendering various Notion blocks and provides functionality for smooth scrolling to specific blocks.
+ * 
+ * @property {string} pageId - Required input property that receives the ID of the Notion page to display.
+ * @property {string | undefined} iconPage - Signal that holds the icon of the page if available.
+ * @property {INgxNotionResponse<NotionBlock[]>} notionBlocksQuery - Holds the response from the Notion service for fetching the page's blocks.
+ * 
+ * @method ngOnChanges() - Executed when input properties change. It triggers fetching the blocks of the page from the Notion service.
+ * @method getchildContent(id: string): Observable<NotionBlock | undefined> - Returns an observable that emits the child block matching the provided ID.
+ * @method scrollToBlock(id: string) - Scrolls smoothly to the block with the given ID and triggers change detection.
+ */
 @Component({
     selector: 'notion-page',
     standalone: true,

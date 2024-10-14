@@ -31,7 +31,7 @@ import { LayoutContainerComponent } from '../layout-container/layout-container.c
  * @method goToPage(id: NotionDatabaseItem['id']) - Emits the `itemSelected` event with the selected item’s ID.
  */
 @Component({
-    selector: 'notion-database',
+    selector: 'ngx-notion-database',
     standalone: true,
     imports: [DatabaseItemComponent, CommonModule, LayoutContainerComponent],
     templateUrl: './notion-database.component.html',

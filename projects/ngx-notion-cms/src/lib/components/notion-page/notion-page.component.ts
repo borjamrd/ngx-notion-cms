@@ -33,7 +33,7 @@ import { NotionTableOfContentsComponent } from '../table-of-contents/notion-tabl
  * @method scrollToBlock(id: string) - Scrolls smoothly to the block with the given ID and triggers change detection.
  */
 @Component({
-    selector: 'notion-page',
+    selector: 'ngx-notion-page',
     standalone: true,
     imports: [
         CommonModule,

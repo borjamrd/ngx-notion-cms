@@ -21,12 +21,6 @@ import { NotionBlockCalloutComponent } from '../notion-block-callout/notion-bloc
         PageCoverComponent,
         NotionBlockCalloutComponent
     ],
-    providers: [
-        provideHighlightOptions({
-            fullLibraryLoader: () => import('highlight.js'),
-            lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
-        }),
-    ],
     templateUrl: './notion-block.component.html',
     styleUrl: './notion-block.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,6 +28,5 @@ import { NotionBlockCalloutComponent } from '../notion-block-callout/notion-bloc
 export class NotionBlockComponent {
     notionBlockSignal = input.required<NotionBlock>({ 'alias': 'notionBlock' });
     previousBlockType = input<NotionBlock['type']>();
-
     numberedListPosition = 1;
 }

@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { map, tap } from 'rxjs';
+import { map } from 'rxjs';
 import { NotionBlock, NotionDatabaseItem } from './../types';
 import { NotionHttpService } from './http-notion.service';
 
@@ -20,7 +20,7 @@ export class NgxNotionService {
      * The isPending indicates if the request is still in progress.
      */
     public getDatabaseItemsById(id: string) {
-        return this.http.get<any[]>(
+        return this.http.get<NotionDatabaseItem[]>(
             `https://notion-api.splitbee.io/v1/table/${id}`
         )
     }

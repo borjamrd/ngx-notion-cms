@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Configure Git to use HTTPS instead of SSH
-        run: git config --global url."https://github.com/".insteadOf git@github.com:
+        run: git config --global url."https://github.com/".insteadOf git@github.com
 
       - name: Setup Node
         uses: actions/setup-node@v4

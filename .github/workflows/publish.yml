@@ -1,4 +1,4 @@
-name: Release & Publish to npm
+name: Release & Publish
 
 on:
   push:
@@ -11,14 +11,12 @@ permissions:
 
 jobs:
   release:
-    name: Release
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # required for tags
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -32,17 +30,24 @@ jobs:
       - name: Build library
         run: npm run ngx-notion-cms:build
 
-      - name: Generate release & changelog
+      - name: Replace ngx-notion-cms dependency with local file
+        run: |
+          jq '.dependencies["ngx-notion-cms"] = "file:dist/ngx-notion-cms"' package.json > tmp.json && mv tmp.json package.json
+
+      - name: Install with local ngx-notion-cms
+        run: npm install
+
+      - name: Generate release and changelog
         run: npm run release:ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to npm
-        run: npm publish dist/ngx-notion-cms/ --access public
+        run: npm publish dist/ngx-notion-cms --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Push release changes
+      - name: Push release commit and tag
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

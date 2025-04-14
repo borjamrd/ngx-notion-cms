@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, input } from '@angular/core';
 import {
     Highlight,
     HighlightAuto,
@@ -9,7 +9,6 @@ import { CopyToClipboardComponent } from '../copy-to-clipboard/copy-to-clipboard
 
 @Component({
     selector: 'ngx-notion-block-code',
-    standalone: true,
     templateUrl: './notion-block-code.component.html',
     styleUrl: './notion-block-code.component.scss',
     providers: [
@@ -18,19 +17,20 @@ import { CopyToClipboardComponent } from '../copy-to-clipboard/copy-to-clipboard
             lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
         }),
     ],
-    imports: [HighlightAuto, Highlight, CopyToClipboardComponent],
-
+    imports: [HighlightAuto, Highlight, CopyToClipboardComponent]
 })
 export class NotionBlockCodeComponent implements OnInit {
     codeForHighlight = '';
     languange = '';
     te = signal('');
-    @Input() notionBlock!: NotionBlock;
+    readonly notionBlock = input.required<NotionBlock>();
 
     ngOnInit(): void {
-        if (this.notionBlock.properties?.language) {
-            this.languange = this.notionBlock.properties.language[0][0];
-            this.codeForHighlight = this.notionBlock.properties.title[0][0];
+        const notionBlock = this.notionBlock();
+        const notionBlock = this.notionBlock();
+        if (notionBlock.properties?.language) {
+            this.languange = notionBlock.properties.language[0][0];
+            this.codeForHighlight = notionBlock.properties.title[0][0];
         }
     }
 

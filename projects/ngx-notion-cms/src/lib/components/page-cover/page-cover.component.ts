@@ -3,16 +3,14 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import { NotionBlock } from '../../types';
 import { getBlockImageURL } from '../../utils/utils';
 @Component({
-  selector: 'ngx-page-cover',
-  standalone: true,
-  imports: [
-    CommonModule,
-    NgOptimizedImage
-  ],
-  templateUrl: './page-cover.component.html',
-  styleUrl: './page-cover.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-
+    selector: 'ngx-page-cover',
+    imports: [
+        CommonModule,
+        NgOptimizedImage
+    ],
+    templateUrl: './page-cover.component.html',
+    styleUrl: './page-cover.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageCoverComponent {
   notionBlockSignal = input.required<NotionBlock>({ 'alias': 'notionBlock' })

@@ -6,14 +6,13 @@ import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-post-view',
-    standalone: true,
     imports: [NotionPageComponent],
     templateUrl: './post-view.component.html',
     styleUrl: './post-view.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         class: 'block w-full',
-    },
+    }
 })
 export class PostViewComponent {
     route = inject(ActivatedRoute);

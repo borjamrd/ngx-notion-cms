@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { map, tap } from 'rxjs';
-import { NotionBlock, NotionDatabaseItem } from './../types';
+import { map } from 'rxjs';
+import { NotionBlock } from './../types';
 import { NotionHttpService } from './http-notion.service';
 
 @Injectable({

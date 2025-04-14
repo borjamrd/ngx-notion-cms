@@ -10,7 +10,6 @@ import {
 import { NotionBlock, TableOfContentsEntry } from '../../types/block.type';
 @Component({
     selector: 'ngx-notion-table-of-contents',
-    standalone: true,
     imports: [CommonModule],
     templateUrl: './notion-table-of-contents.component.html',
     styleUrl: './notion-table-of-contents.component.css',

@@ -34,7 +34,6 @@ import { NotionTableOfContentsComponent } from '../table-of-contents/notion-tabl
  */
 @Component({
     selector: 'ngx-notion-page',
-    standalone: true,
     imports: [
         CommonModule,
         NgTemplateOutlet,
@@ -44,7 +43,7 @@ import { NotionTableOfContentsComponent } from '../table-of-contents/notion-tabl
     ],
     templateUrl: './notion-page.component.html',
     styleUrl: './notion-page.component.css',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NotionPageComponent implements OnChanges {
     private ngxNotionService: NgxNotionService = inject(NgxNotionService);

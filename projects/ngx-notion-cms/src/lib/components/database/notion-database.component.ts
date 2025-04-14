@@ -32,11 +32,10 @@ import { LayoutContainerComponent } from '../layout-container/layout-container.c
  */
 @Component({
     selector: 'ngx-notion-database',
-    standalone: true,
     imports: [DatabaseItemComponent, CommonModule, LayoutContainerComponent],
     templateUrl: './notion-database.component.html',
     styles: ``,
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NotionDatabaseComponent implements OnInit {
     public dataBaseId = input.required<string>();

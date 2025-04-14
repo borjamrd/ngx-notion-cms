@@ -38,11 +38,10 @@ import { BadgeStatusComponent } from '../badge-status/badge-status.component';
  */
 @Component({
     selector: 'ngx-notion-database-item',
-    standalone: true,
     imports: [CommonModule, BadgeStatusComponent],
     templateUrl: './database-item.component.html',
     styleUrl: './database-item.component.css',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DatabaseItemComponent implements OnInit {
     private cdr = inject(ChangeDetectorRef);

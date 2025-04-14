@@ -4,7 +4,6 @@ import { ThemeService } from '../../services/theme.service';
 
 @Component({
     selector: 'app-toggle-button',
-    standalone: true,
     imports: [CommonModule],
     templateUrl: './toggle-button.component.html',
     styleUrl: './toggle-button.component.css',

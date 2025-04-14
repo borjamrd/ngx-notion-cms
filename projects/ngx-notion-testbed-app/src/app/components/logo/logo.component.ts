@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-logo',
-  standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  template: `
+    selector: 'app-logo',
+    imports: [
+        CommonModule,
+    ],
+    template: `
   <div class="flex flex-col gap-1 items-center">
   <svg
   class="md:h-20 md:w-20 aspect-square h-8 w-8 mx-center"
@@ -52,7 +51,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   </div>
 
 `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogoComponent { }

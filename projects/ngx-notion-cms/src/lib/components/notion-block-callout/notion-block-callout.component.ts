@@ -5,16 +5,15 @@ import { NotionBlock } from '../../types';
 import { NotionBlockTextComponent } from '../notion-block-text/notion-block-text.component';
 
 @Component({
-  selector: 'ngx-notion-block-callout',
-  standalone: true,
-  imports: [
-    Nl2brPipe,
-    JsonPipe,
-    NotionBlockTextComponent
-  ],
-  templateUrl: './notion-block-callout.component.html',
-  styleUrl: './notion-block-callout.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'ngx-notion-block-callout',
+    imports: [
+        Nl2brPipe,
+        JsonPipe,
+        NotionBlockTextComponent
+    ],
+    templateUrl: './notion-block-callout.component.html',
+    styleUrl: './notion-block-callout.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NotionBlockCalloutComponent {
 

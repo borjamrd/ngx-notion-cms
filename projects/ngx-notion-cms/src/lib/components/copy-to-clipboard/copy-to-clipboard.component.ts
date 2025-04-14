@@ -1,19 +1,14 @@
-import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angular/core';
 import { CopyToClipboardDirective } from '../../directives/copy-to-clipboard';
 
 @Component({
-  selector: 'ngx-copy-to-clipboard',
-  standalone: true,
-  imports: [
-    NgIf,
-  ],
-  providers: [
-    CopyToClipboardDirective,
-  ],
-  templateUrl: './copy-to-clipboard.component.html',
-  styleUrl: './copy-to-clipboard.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'ngx-copy-to-clipboard',
+    providers: [
+        CopyToClipboardDirective,
+    ],
+    templateUrl: './copy-to-clipboard.component.html',
+    styleUrl: './copy-to-clipboard.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CopyToClipboardComponent {
 

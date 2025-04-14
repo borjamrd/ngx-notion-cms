@@ -12,6 +12,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,17 +31,16 @@ jobs:
       - name: Build library
         run: npm run ngx-notion-cms:build
 
-      - name: Replace ngx-notion-cms dependency with local file
-        run: |
-          jq '.dependencies["ngx-notion-cms"] = "file:dist/ngx-notion-cms"' package.json > tmp.json && mv tmp.json package.json
-
-      - name: Install with local ngx-notion-cms
-        run: npm install
-
       - name: Configure Git identity
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Replace ngx-notion-cms dependency with local build
+        run: |
+          jq '.dependencies["ngx-notion-cms"] = "file:dist/ngx-notion-cms"' package.json > tmp.json && mv tmp.json package.json
+          rm -rf node_modules package-lock.json
+          npm install
 
       - name: Generate release and changelog
         run: npm run release:ci
@@ -54,6 +54,4 @@ jobs:
 
       - name: Push release commit and tag
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
           git push --follow-tags origin main

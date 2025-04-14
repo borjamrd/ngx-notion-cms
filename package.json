@@ -1,6 +1,6 @@
 {
     "name": "notion-workspace",
-    "version": "19.1.6",
+    "version": "19.1.7",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",

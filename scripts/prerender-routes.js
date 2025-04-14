@@ -17,7 +17,6 @@
     fileContent += '\n'
     fileContent += postPages.map(resp => `/posts/${resp.id}`).join('\n')
 
-    console.log('routes.txt created 🚀', fileContent)
     fs.writeFileSync('routes.txt', fileContent)
 
 })()

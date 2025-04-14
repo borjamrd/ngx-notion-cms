@@ -45,7 +45,6 @@ export class NgxNotionService {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         Object.values(response.data).forEach((key: any) => {
                             if (key.value) {
-                                console.log(key.value);
                                 blocks.push(key.value);
                             }
                         });

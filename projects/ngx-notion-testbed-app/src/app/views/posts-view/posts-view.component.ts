@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { NotionDatabaseComponent, NotionDatabaseItem } from 'ngx-notion-cms';
 
@@ -14,4 +14,5 @@ export class PostsViewComponent {
     setPageItemSelected(id: NotionDatabaseItem['id']) {
         this.router.navigate(['posts', id]);
     }
+    databaseId = signal<string>('e9c95945794e462d92fe07e34d26b368');
 }

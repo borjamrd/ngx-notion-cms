@@ -27,7 +27,6 @@ export class NotionBlockCodeComponent implements OnInit {
 
     ngOnInit(): void {
         const notionBlock = this.notionBlock();
-        const notionBlock = this.notionBlock();
         if (notionBlock.properties?.language) {
             this.languange = notionBlock.properties.language[0][0];
             this.codeForHighlight = notionBlock.properties.title[0][0];

@@ -34,7 +34,13 @@ module.exports = tseslint.config(
             "@angular-eslint/template/interactive-supports-focus": [
                 "warn"
             ],
-            "@angular-eslint/template/eqeqeq": ["warn"]
+            "@angular-eslint/template/eqeqeq": ["warn"],
+            "@typescript-eslint/no-explicit-any": [
+                "warn",
+                {
+                    "ignoreRestArgs": true
+                }
+            ],
         }
     }
 );

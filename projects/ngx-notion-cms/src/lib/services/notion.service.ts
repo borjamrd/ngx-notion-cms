@@ -20,6 +20,7 @@ export class NgxNotionService {
      * The isPending indicates if the request is still in progress.
      */
     public getDatabaseItemsById(id: string) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return this.http.get<any[]>(
             `https://notion-api.splitbee.io/v1/table/${id}`
         )

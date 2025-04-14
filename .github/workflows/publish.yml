@@ -34,6 +34,9 @@ jobs:
       - name: Build library
         run: npm run ngx-notion-cms:build
 
+      - name: Build Tailwind styles
+        run: npm run ngx-notion-cms:tailwind
+
       - name: Configure Git identity
         run: |
           git config user.name "github-actions[bot]"
@@ -56,5 +59,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Push release commit and tag
-        run: |
-          git push --follow-tags origin main
+        run: git push --follow-tags origin main

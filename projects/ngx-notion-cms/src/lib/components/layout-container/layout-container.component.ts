@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
     selector: 'ngx-layout-container',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './layout-container.component.html',
     styleUrl: './layout-container.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush

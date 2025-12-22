@@ -1,11 +1,9 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
     selector: 'app-logo',
-    imports: [
-        CommonModule,
-    ],
+    imports: [],
     template: `
   <div class="flex flex-col gap-1 items-center">
   <svg

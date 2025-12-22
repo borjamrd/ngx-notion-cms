@@ -1,10 +1,11 @@
-import { DOCUMENT } from '@angular/common';
+
 import {
-    inject,
-    Injectable,
-    Renderer2,
-    RendererFactory2,
-    signal,
+  inject,
+  Injectable,
+  Renderer2,
+  RendererFactory2,
+  signal,
+  DOCUMENT
 } from '@angular/core';
 
 @Injectable({

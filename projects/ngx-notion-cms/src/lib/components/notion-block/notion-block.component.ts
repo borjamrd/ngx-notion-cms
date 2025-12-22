@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Nl2brPipe } from '../../pipes/nl2br.pipe';
 import { SecureResourceUrlPipe } from '../../pipes/safe-resource-url.pipe';
@@ -11,14 +11,13 @@ import { PageCoverComponent } from '../page-cover/page-cover.component';
 @Component({
     selector: 'ngx-notion-block',
     imports: [
-        CommonModule,
-        NotionBlockTextComponent,
-        Nl2brPipe,
-        SecureResourceUrlPipe,
-        NotionBlockCodeComponent,
-        PageCoverComponent,
-        NotionBlockCalloutComponent
-    ],
+    NotionBlockTextComponent,
+    Nl2brPipe,
+    SecureResourceUrlPipe,
+    NotionBlockCodeComponent,
+    PageCoverComponent,
+    NotionBlockCalloutComponent
+],
     templateUrl: './notion-block.component.html',
     styleUrl: './notion-block.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush

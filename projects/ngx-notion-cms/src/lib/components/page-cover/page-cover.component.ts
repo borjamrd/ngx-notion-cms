@@ -1,13 +1,12 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NotionBlock } from '../../types';
 import { getBlockImageURL } from '../../utils/utils';
 @Component({
     selector: 'ngx-page-cover',
     imports: [
-        CommonModule,
-        NgOptimizedImage
-    ],
+    NgOptimizedImage
+],
     templateUrl: './page-cover.component.html',
     styleUrl: './page-cover.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush

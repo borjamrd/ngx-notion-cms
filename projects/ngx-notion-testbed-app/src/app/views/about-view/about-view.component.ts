@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { NotionPageComponent } from 'ngx-notion-cms';
 
 @Component({
     selector: 'app-about-view',
-    imports: [CommonModule, NotionPageComponent],
+    imports: [NotionPageComponent],
     templateUrl: './about-view.component.html',
     styleUrl: './about-view.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush

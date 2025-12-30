@@ -3,9 +3,9 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
+    effect,
     inject,
     input,
-    OnChanges,
     signal
 } from '@angular/core';
 import { map, Observable } from 'rxjs';
@@ -45,19 +45,23 @@ import { NotionTableOfContentsComponent } from '../table-of-contents/notion-tabl
     styleUrl: './notion-page.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NotionPageComponent implements OnChanges {
+export class NotionPageComponent {
     private ngxNotionService: NgxNotionService = inject(NgxNotionService);
 
     public pageId = input.required<string>();
+    public layoutStyleClass = input<string>();
     public iconPage = signal<string | undefined>(undefined);
 
     public notionBlocksQuery!: INgxNotionResponse<NotionBlock[]>;
     private cdr = inject(ChangeDetectorRef);
 
-    ngOnChanges(): void {
-        this.notionBlocksQuery = this.ngxNotionService.getPageBlocks(
-            this.pageId()
-        );
+    constructor() {
+        effect(() => {
+            if (this.pageId()) {
+                this.notionBlocksQuery = this.ngxNotionService.getPageBlocks(
+                this.pageId());
+            }
+        })
     }
 
     getchildContent(id: string): Observable<NotionBlock | undefined> {

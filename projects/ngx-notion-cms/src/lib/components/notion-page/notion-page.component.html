@@ -1,5 +1,5 @@
 @let query = notionBlocksQuery | async;
-<ngx-layout-container>
+<ngx-layout-container  [styleClass]="layoutStyleClass()">
     @if (query) {
         @if (query.isPending) {
             <div>loading</div>

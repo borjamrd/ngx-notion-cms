@@ -1,5 +1,5 @@
 
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
     selector: 'ngx-layout-container',
@@ -8,4 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     styleUrl: './layout-container.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LayoutContainerComponent {}
+export class LayoutContainerComponent {
+    styleClass = input<string>()
+}

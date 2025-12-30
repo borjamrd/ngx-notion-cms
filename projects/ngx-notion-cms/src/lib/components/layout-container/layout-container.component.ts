@@ -1,5 +1,4 @@
-
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
     selector: 'ngx-layout-container',
@@ -8,4 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     styleUrl: './layout-container.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LayoutContainerComponent {}
+export class LayoutContainerComponent {
+    // input() creates a Signal that reflects the incoming value from parents
+    public containerClass = input<string | undefined>();
+}

@@ -1,4 +1,3 @@
-
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
@@ -9,5 +8,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutContainerComponent {
-    styleClass = input<string>()
+    public containerClass = input<string | undefined>();
+
 }

@@ -8,6 +8,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutContainerComponent {
-    // input() creates a Signal that reflects the incoming value from parents
     public containerClass = input<string | undefined>();
+
 }

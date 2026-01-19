@@ -1,4 +1,4 @@
-<div class="max-w-5xl h-full">
+<div [class]="'max-w-5xl h-full ' + (containerClass() ?? '')">
     <div class="w-full h-full relative">
         <ng-content></ng-content>
     </div>

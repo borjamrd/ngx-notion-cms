@@ -47,6 +47,7 @@
                     </ng-template>
                     <div class="relative w-full md:w-1/5">
                         <ngx-notion-table-of-contents
+                            [intersectingHeaderId]="intersectingHeaderId()"
                             (scrollToBlock)="scrollToBlock($event)"
                             [blocks]="query.data!" />
                     </div>

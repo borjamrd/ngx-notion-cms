@@ -19,6 +19,7 @@ import { NotionBlock, TableOfContentsEntry } from '../../types/block.type';
     }
 })
 export class NotionTableOfContentsComponent implements OnChanges {
+    public intersectingHeaderId = input<string | undefined>(undefined)
     public scrollToBlock = output<string>();
     public blocks = input.required<NotionBlock[]>();
     public tableOfContents: TableOfContentsEntry[] = [];

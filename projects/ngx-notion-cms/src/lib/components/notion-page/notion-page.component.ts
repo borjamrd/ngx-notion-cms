@@ -58,6 +58,8 @@ export class NotionPageComponent {
    
     public layoutStyleClass = input<string>();
 
+    public isTableOfContentVisible = input<boolean>(true);
+
     private notionBlockRefs = viewChildren(NotionBlockComponent);
    
     public iconPage = signal<string | undefined>(undefined);
@@ -72,15 +74,18 @@ export class NotionPageComponent {
 
     constructor() {
         afterNextRender(() => {
-            this.observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        this.intersectingHeaderId.set(entry.target.getAttribute('id') ?? undefined)
-                    }
-                })
-            }, undefined);
 
-            this.observeAllHeadersBlock();
+            if (this.isTableOfContentVisible()) {
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            this.intersectingHeaderId.set(entry.target.getAttribute('id') ?? undefined)
+                        }
+                    })
+                }, undefined);
+
+                this.observeAllHeadersBlock();
+            }
         })
 
         effect(() => {
@@ -91,7 +96,9 @@ export class NotionPageComponent {
         })
 
         effect(() => {
-           this.observeAllHeadersBlock();
+            if (this.isTableOfContentVisible()) {
+                this.observeAllHeadersBlock();
+            }
         })
     }
 

@@ -9,7 +9,7 @@ Possible uses:
 
 Huge thanks to [react-notion](https://github.com/splitbee/react-notion), this library simulates much of what they have previously created with React. ❤️
 
-_This package doesn't handle the communication with the API. Check out [notion-api-worker](https://github.com/splitbee/notion-api-worker) for an easy solution_.
+_This package handles communication with the Notion API *internally* by using [notion-api-worker](https://github.com/splitbee/notion-api-worker) Consumers do not need to interact with the Notion API directly_.
 
 <sub>Created by <a href="https://www.threads.net/@borjamrd">Borja Muñoz</a> with the help of all <a href="https://github.com/borjamrd/notion-workspace/graphs/contributors">contributors</a> </sub>
 

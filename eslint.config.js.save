@@ -1,14 +1,10 @@
-// eslint.config.js
+// @ts-check
 const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
+const tseslint = require('typescript-esliconst angular = require('angular-eslint');
 
 module.exports = tseslint.config(
     {
         files: ['**/*.ts'],
-        plugins: {
-            '@typescript-eslint': tseslint.plugin,
-        },
         extends: [
             eslint.configs.recommended,
             ...tseslint.configs.recommended,
@@ -17,15 +13,21 @@ module.exports = tseslint.config(
         ],
         processor: angular.processInlineTemplates,
         rules: {
-            // Ahora ya no debería dar error aquí
-            '@typescript-eslint/no-explicit-any': 'off',
             '@angular-eslint/directive-selector': [
                 'error',
-                { type: 'attribute', prefix: 'lib', style: 'camelCase' },
+                {
+                    type: 'attribute',
+                    prefix: 'lib',
+                    style: 'camelCase',
+                },
             ],
             '@angular-eslint/component-selector': [
                 'error',
-                { type: 'element', prefix: 'lib', style: 'kebab-case' },
+                {
+                    type: 'element',
+                    prefix: 'lib',
+                    style: 'kebab-case',
+                },
             ],
         },
     },
@@ -36,9 +38,14 @@ module.exports = tseslint.config(
             ...angular.configs.templateAccessibility,
         ],
         rules: {
-            '@angular-eslint/template/click-events-have-key-events': ['warn'],
-            '@angular-eslint/template/interactive-supports-focus': ['warn'],
-            '@angular-eslint/template/eqeqeq': ['warn'],
-        },
+            "@angular-eslint/template/click-events-have-key-events": [
+                "warn"
+            ],
+            "@angular-eslint/template/interactive-supports-focus": [
+                "warn"
+            ],
+            "@angular-eslint/template/eqeqeq": ["warn"]
+        }
+
     }
 );

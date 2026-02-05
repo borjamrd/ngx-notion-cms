@@ -1,3 +1,7 @@
 :host {
     display: block;
 }
+
+.highlight {
+    background-color: oklch(92.8% 0.006 264.531);
+}

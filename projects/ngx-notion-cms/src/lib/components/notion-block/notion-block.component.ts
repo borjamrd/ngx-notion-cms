@@ -32,12 +32,12 @@ import { PageCoverComponent } from '../page-cover/page-cover.component';
 export class NotionBlockComponent {
     templateRef = inject(ElementRef);
     notionBlockSignal = input.required<NotionBlock>();
+
+    @HostBinding('id')
+    get blockId() {
+        return this.notionBlockSignal().id;
+    }
+
     previousBlockType = input<NotionBlock['type']>();
     numberedListPosition = 1;
-    @HostBinding('id')
-    blockId: string = '';
-
-    blockIdUpdateEffectRef = effect(() => {
-        this.blockId = this.notionBlockSignal().id;
-    });
 }

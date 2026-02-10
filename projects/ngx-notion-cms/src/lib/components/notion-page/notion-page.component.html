@@ -30,7 +30,7 @@
                         let-prevBlockType="prevBlockType">
                         <ngx-notion-block
                             [previousBlockType]="prevBlockType"
-                            [notionBlock]="data" />
+                            [notionBlockSignal]="data" />
                         @if (
                             data.type !== 'page' && data?.content;
                             as childBlocks

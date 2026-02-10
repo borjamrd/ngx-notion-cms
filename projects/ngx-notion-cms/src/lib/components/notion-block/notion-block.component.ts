@@ -1,7 +1,6 @@
 import {
     ChangeDetectionStrategy,
     Component,
-    effect,
     ElementRef,
     HostBinding,
     inject,

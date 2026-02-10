@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.2.0](https://github-personal/borjamrd/ngx-notion-cms/compare/v19.1.7...v19.2.0) (2026-02-10)
+
+
+### Features
+
+* **layout:** use input() signals for container classes ([32e134f](https://github-personal/borjamrd/ngx-notion-cms/commit/32e134f07223b71382a7cffba67bf5c9eea9cf79))
+* **notion-page:** highlight the active section in the table of contents ([9dde3f4](https://github-personal/borjamrd/ngx-notion-cms/commit/9dde3f463770360d31476a4e5ef270fbaad8dbfd))
+* **notion-page:** make the display of the content table optional ([f651711](https://github-personal/borjamrd/ngx-notion-cms/commit/f651711f157d7e274772681826081eea528edd22))
+
+
+### Bug Fixes
+
+* **notion-page:** fix the side effect of renaming the container style class ([335c2e6](https://github-personal/borjamrd/ngx-notion-cms/commit/335c2e6cb31dd09c9c8692785d502664a2c50e78))
+
 ### [19.1.7](https://github.com/borjamrd/ngx-notion-cms/compare/v19.1.6...v19.1.7) (2025-04-14)
 
 ### [19.1.6](https://github.com/borjamrd/ngx-notion-cms/compare/v19.1.5...v19.1.6) (2025-04-14)

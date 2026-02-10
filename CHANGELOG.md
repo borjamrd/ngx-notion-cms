@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [19.2.1](https://github-personal/borjamrd/ngx-notion-cms/compare/v19.2.0...v19.2.1) (2026-02-10)
+
 ## [19.2.0](https://github-personal/borjamrd/ngx-notion-cms/compare/v19.1.7...v19.2.0) (2026-02-10)
 
 

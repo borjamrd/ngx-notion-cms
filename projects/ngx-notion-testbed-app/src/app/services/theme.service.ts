@@ -17,7 +17,9 @@ export class ThemeService {
     document: Document = inject(DOCUMENT);
     private _renderer2: Renderer2;
 
-    constructor(rendererFactory: RendererFactory2) {
+    constructor() {
+        const rendererFactory = inject(RendererFactory2);
+
         this._renderer2 = rendererFactory.createRenderer(null, null);
         this.setTheme(this.themeSignal());
     }

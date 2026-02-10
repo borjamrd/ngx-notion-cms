@@ -13,6 +13,7 @@
     "prepare": "husky",
     "release": "standard-version",
     "release:ci": "standard-version --no-verify --no-commit-hooks",
+    "ngx:watch": "ng build --watch --configuration development ngx-notion-cms",
     "ngx:lint": "ng lint ngx-notion-cms",
     "ngx:test": "ng test ngx-notion-cms --no-watch --no-progress --browsers=ChromeHeadless",
     "ngx:build": "ng build ngx-notion-cms --configuration production",

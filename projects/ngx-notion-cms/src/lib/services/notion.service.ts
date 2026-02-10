@@ -1,13 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { NotionBlock } from './../types';
+import { NotionBlock, NotionDatabaseItem } from './../types';
 import { NotionHttpService } from './http-notion.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class NgxNotionService {
-    private http = inject(NotionHttpService);
+    private httpNotion = inject(NotionHttpService);
 
     /**
      * Fetches the items of a Notion database by its ID.
@@ -20,24 +20,23 @@ export class NgxNotionService {
      * The isPending indicates if the request is still in progress.
      */
     public getDatabaseItemsById(id: string) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return this.http.get<any[]>(
+        return this.httpNotion.get<NotionDatabaseItem[]>(
             `https://notion-api.splitbee.io/v1/table/${id}`
-        )
+        );
     }
 
-/**
- * Fetches and processes the blocks of a Notion page by its ID.
- *
- * @param {string} id - The ID of the Notion page to fetch the blocks for.
- * @returns {Observable<{ data: NotionBlock[] | null, error: string | null, isPending: boolean }>}
- * An observable that emits an object containing the blocks data, an error message, and a pending status.
- * The blocks data is an array of NotionBlock if available, otherwise null.
- * The error is null if no error occurred, otherwise a string describing the error.
- * The isPending indicates if the request is still in progress.
- */
+    /**
+     * Fetches and processes the blocks of a Notion page by its ID.
+     *
+     * @param {string} id - The ID of the Notion page to fetch the blocks for.
+     * @returns {Observable<{ data: NotionBlock[] | null, error: string | null, isPending: boolean }>}
+     * An observable that emits an object containing the blocks data, an error message, and a pending status.
+     * The blocks data is an array of NotionBlock if available, otherwise null.
+     * The error is null if no error occurred, otherwise a string describing the error.
+     * The isPending indicates if the request is still in progress.
+     */
     public getPageBlocks(id: string) {
-        return this.http
+        return this.httpNotion
             .get<NotionBlock[]>(`https://notion-api.splitbee.io/v1/page/${id}`)
             .pipe(
                 map(response => {
@@ -70,5 +69,4 @@ export class NgxNotionService {
                 })
             );
     }
-
 }

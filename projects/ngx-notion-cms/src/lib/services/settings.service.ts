@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { GlobalSettings } from '../types/settings.type';
 import { GlobalSettingsConfig } from '../utils/settings.config';
 import { GLOBAL_SETTINGS_TOKEN } from '../providers';
@@ -9,9 +9,12 @@ import { GLOBAL_SETTINGS_TOKEN } from '../providers';
     providedIn: 'root',
 })
 export class NgxSettingService {
+    private config = inject<GlobalSettingsConfig>(GLOBAL_SETTINGS_TOKEN);
+
     private _globalSettings: GlobalSettings;
 
-    constructor(@Inject(GLOBAL_SETTINGS_TOKEN) private config: GlobalSettingsConfig) {
+
+    constructor() {
         this._globalSettings = this.config.globalSettings;
     }
 

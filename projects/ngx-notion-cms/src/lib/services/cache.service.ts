@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { GlobalSettingsConfig } from '../utils/settings.config';
 import { GLOBAL_SETTINGS_TOKEN } from '../providers';
@@ -7,12 +7,14 @@ import { GLOBAL_SETTINGS_TOKEN } from '../providers';
     providedIn: 'root',
 })
 export class CacheService<T> {
+    private config = inject<GlobalSettingsConfig>(GLOBAL_SETTINGS_TOKEN);
+
     private cache = new Map<string, { data: T; expiry: number }>();
     public cache$ = new BehaviorSubject<T | null>(null);
 
     private readonly STORE_IN_CACHE = true
 
-    constructor(@Inject(GLOBAL_SETTINGS_TOKEN) private config: GlobalSettingsConfig) {
+    constructor() {
         this.STORE_IN_CACHE = this.config.globalSettings.cacheOptions.storeInCache || this.STORE_IN_CACHE;
     }
 

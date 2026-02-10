@@ -1,12 +1,16 @@
-import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { CommonModule, isPlatformBrowser, NgTemplateOutlet } from '@angular/common';
 import {
+    afterNextRender,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     effect,
     inject,
     input,
-    signal
+    PLATFORM_ID,
+    signal,
+    viewChildren,
+    WritableSignal
 } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { INgxNotionResponse } from '../../services/http-notion.service';
@@ -48,18 +52,52 @@ import { NotionTableOfContentsComponent } from '../table-of-contents/notion-tabl
 export class NotionPageComponent {
     private ngxNotionService: NgxNotionService = inject(NgxNotionService);
 
+    private PLATFORM_ID = inject(PLATFORM_ID);
+
     public pageId = input.required<string>();
+   
     public layoutStyleClass = input<string>();
+
+    public isTableOfContentVisible = input<boolean>(true);
+
+    private notionBlockRefs = viewChildren(NotionBlockComponent);
+   
     public iconPage = signal<string | undefined>(undefined);
 
     public notionBlocksQuery!: INgxNotionResponse<NotionBlock[]>;
+   
     private cdr = inject(ChangeDetectorRef);
 
+    private observer: undefined | IntersectionObserver;
+
+    public intersectingHeaderId: WritableSignal<string | undefined> = signal(undefined);
+
     constructor() {
+        afterNextRender(() => {
+
+            if (this.isTableOfContentVisible()) {
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            this.intersectingHeaderId.set(entry.target.getAttribute('id') ?? undefined)
+                        }
+                    })
+                }, undefined);
+
+                this.observeAllHeadersBlock();
+            }
+        })
+
         effect(() => {
             if (this.pageId()) {
                 this.notionBlocksQuery = this.ngxNotionService.getPageBlocks(
                 this.pageId());
+            }
+        })
+
+        effect(() => {
+            if (this.isTableOfContentVisible()) {
+                this.observeAllHeadersBlock();
             }
         })
     }
@@ -82,6 +120,16 @@ export class NotionPageComponent {
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
             this.cdr.detectChanges();
+        }
+    }
+
+    observeAllHeadersBlock() {
+         if (isPlatformBrowser(this.PLATFORM_ID) && this.observer) {
+                this.notionBlockRefs().forEach((component) => {
+                if (component.notionBlockSignal().type === 'header' || component.notionBlockSignal().type === 'sub_header' || component.notionBlockSignal().type === 'sub_sub_header') {
+                    this.observer?.observe(component.templateRef.nativeElement);
+                }
+            })
         }
     }
 }

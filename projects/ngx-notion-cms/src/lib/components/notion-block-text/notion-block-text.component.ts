@@ -8,8 +8,8 @@ import { NotionBlock } from '../../types';
     imports: [CommonModule, Nl2brPipe],
     templateUrl: './notion-block-text.component.html',
     styleUrl: './notion-block-text.component.css',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotionBlockTextComponent {
-    notionBlockSignal = input.required<NotionBlock>({ alias: 'notionBlock' });
+    notionBlockSignal = input.required<NotionBlock>();
 }

@@ -36,12 +36,12 @@
             <div
                 class="h-7 px-4 flex items-center border-s-2 border-slate-800 dark:border-slate-200">
                 <blockquote>
-                    <ngx-notion-block-text [notionBlock]="notionBlock" />
+                    <ngx-notion-block-text [notionBlockSignal]="notionBlock" />
                 </blockquote>
             </div>
         }
         @case ('text') {
-            <ngx-notion-block-text [notionBlock]="notionBlock" />
+            <ngx-notion-block-text [notionBlockSignal]="notionBlock" />
         }
         @case ('code') {
             <ngx-notion-block-code [notionBlock]="notionBlock" />
@@ -55,7 +55,7 @@
                     value=""
                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 disabled:bg-gray-100 disabled:border-gray-300 disabled:cursor-not-allowed"
                     [checked]="notionBlock!.properties!.checked" />
-                <ngx-notion-block-text [notionBlock]="notionBlock" />
+                <ngx-notion-block-text [notionBlockSignal]="notionBlock" />
             </div>
         }
         @case ('callout') {

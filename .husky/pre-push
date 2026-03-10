@@ -1,2 +1,2 @@
-npm run ngx-notion-cms:lint
-# npm run ngx-notion-cms:test
+npm run ngx:lint
+npm run ngx:test

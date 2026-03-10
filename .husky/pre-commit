@@ -1,1 +1,1 @@
-npm run ngx-notion-cms:lint
+pnpm run ngx:lint

@@ -1,2 +1,2 @@
-npm run ngx:lint
-npm run ngx:test
+pnpm run ngx:lint
+pnpm run ngx:test

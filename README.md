@@ -3,13 +3,13 @@
 Render your Notion content through your Angular application as a CMS.
 Possible uses:
 
--   💡 Write your blog
--   🚀 Showcase your projects
--   📄 Write documentation
+- 💡 Write your blog
+- 🚀 Showcase your projects
+- 📄 Write documentation
 
-Huge thanks to [react-notion](https://github.com/splitbee/react-notion), this library simulates much of what they have previously created with React. ❤️
+Huge thanks to [react-notion](https://github.com/splitbee/react-notion) and [notion-api-worker](https://github.com/splitbee/notion-api-worker), this library builds on top of what they created. ❤️
 
-_This package *handles communication with the Notion API internally* by using [notion-api-worker](https://github.com/splitbee/notion-api-worker) Consumers do not need to interact with the Notion API directly_.
+_This package handles communication with the Notion API internally — no additional backend or proxy setup required._
 
 <sub>Created by <a href="https://www.threads.net/@borjamrd">Borja Muñoz</a> with the help of all <a href="https://github.com/borjamrd/notion-workspace/graphs/contributors">contributors</a> </sub>
 
@@ -24,13 +24,13 @@ _This package *handles communication with the Notion API internally* by using [n
 
 You can display any content you want and configure your style to your liking. But we offer you these two options by default:
 
--   Post: which allows you to use all the potential of Notion to write your best articles.
--   Project: to showcase your projects in an attractive visual format.
+- Post: which allows you to use all the potential of Notion to write your best articles.
+- Project: to showcase your projects in an attractive visual format.
 
 For both, only the styles change, the components are the same:
 
--   Notion databases: display multiple items
--   Notion pages: display the content in blocks for each item.
+- Notion databases: display multiple items
+- Notion pages: display the content in blocks for each item.
 
 ## Get started
 
@@ -65,7 +65,6 @@ If you are going to use code blocks ``ngx-notion-cms` uses `ngx-hightlightsjs` u
 ```bash
 npm install ngx-highlightjs
 ```
-
 
 ```typescript
 import { globalSettingsProvider } from 'ngx-notion-cms';

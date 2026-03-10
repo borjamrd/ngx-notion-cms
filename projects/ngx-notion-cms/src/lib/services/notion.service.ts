@@ -21,7 +21,7 @@ export class NgxNotionService {
      */
     public getDatabaseItemsById(id: string) {
         return this.httpNotion.get<NotionDatabaseItem[]>(
-            `https://notion-api.splitbee.io/v1/table/${id}`
+            `https://notion-api-worker-blush.vercel.app/v1/table/${id}`
         );
     }
 
@@ -37,7 +37,9 @@ export class NgxNotionService {
      */
     public getPageBlocks(id: string) {
         return this.httpNotion
-            .get<NotionBlock[]>(`https://notion-api.splitbee.io/v1/page/${id}`)
+            .get<
+                NotionBlock[]
+            >(`https://notion-api-worker-blush.vercel.app/v1/page/${id}`)
             .pipe(
                 map(response => {
                     const blocks: NotionBlock[] = [];

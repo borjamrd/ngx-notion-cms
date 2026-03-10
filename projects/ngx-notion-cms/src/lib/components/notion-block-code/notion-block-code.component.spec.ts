@@ -16,13 +16,7 @@ describe('NotionBlockCodeComponent', () => {
                 { provide: DOCUMENT, useValue: document },
                 provideHighlightOptions({
                     coreLibraryLoader: () =>
-                        Promise.resolve({
-                            highlightElement: jest.fn(),
-                            highlightAuto: jest.fn(() => ({ value: '' })),
-                            highlight: jest.fn(() => ({ value: '' })),
-                            configure: jest.fn(),
-                            registerLanguage: jest.fn(),
-                        }),
+                        Promise.resolve(require('highlight.js')),
                     lineNumbersLoader: () => Promise.resolve(),
                 }),
             ],
@@ -30,7 +24,7 @@ describe('NotionBlockCodeComponent', () => {
 
         fixture = TestBed.createComponent(NotionBlockCodeComponent);
         component = fixture.componentInstance;
-        fixture.componentRef.setInput('block', {
+        fixture.componentRef.setInput('notionBlock', {
             id: 'test-id',
             type: 'code',
             has_children: false,

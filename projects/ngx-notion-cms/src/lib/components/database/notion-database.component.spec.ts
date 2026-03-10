@@ -1,30 +1,42 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { CommonModule } from '@angular/common';
-// import { LayoutContainerComponent } from '../layout-container/layout-container.component';
-// import { NotionDatabaseComponent } from './ngx-notion-database.component';
+import { CommonModule } from '@angular/common';
+import { LayoutContainerComponent } from '../layout-container/layout-container.component';
+import { NotionDatabaseComponent } from './notion-database.component';
 
-// describe('NotionDatabaseComponent', () => {
-//     let component: NotionDatabaseComponent;
-//     let fixture: ComponentFixture<NotionDatabaseComponent>;
+import { NgxNotionService } from '../../services/notion.service';
 
-//     beforeEach(async () => {
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
+describe('NotionDatabaseComponent', () => {
+    let component: NotionDatabaseComponent;
+    let fixture: ComponentFixture<NotionDatabaseComponent>;
 
-//         await TestBed.configureTestingModule({
-//             imports: [NotionDatabaseComponent, CommonModule, LayoutContainerComponent],
-//         }).compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                NotionDatabaseComponent,
+                CommonModule,
+                LayoutContainerComponent,
+            ],
+            providers: [
+                provideHttpClient(),
+                provideHttpClientTesting(),
+                {
+                    provide: NgxNotionService,
+                    useValue: { getDatabaseItemsById: jest.fn() },
+                },
+            ],
+        }).compileComponents();
 
-//         fixture = TestBed.createComponent(NotionDatabaseComponent);
-//         component = fixture.componentInstance;
-//         fixture.detectChanges();
-//     });
+        fixture = TestBed.createComponent(NotionDatabaseComponent);
+        component = fixture.componentInstance;
+        fixture.componentRef.setInput('dataBaseId', 'dummy-id');
+        fixture.detectChanges();
+    });
 
-//     it('should create', () => {
-//         TestBed.configureTestingModule({
-//             teardown: { destroyAfterEach: true }, // 👈
-//             // (...)
-//         });
-//         expect(component).toBeTruthy();
-//     });
-// });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+});
